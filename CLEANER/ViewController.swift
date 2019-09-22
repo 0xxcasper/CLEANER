@@ -15,6 +15,9 @@ class ViewController: UIViewController {
         // Do any additional setup after loading the view.
     }
 
-
+    @IBAction func image(_ sender: UIButton) {
+        self.present(UINavigationController(rootViewController: ImageViewController()), animated: true, completion: nil)
+    }
+    
 }
 

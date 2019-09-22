@@ -7,6 +7,25 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		84064D002337321C00485D2D /* ImageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84064CFE2337321C00485D2D /* ImageViewController.swift */; };
+		84064D012337321C00485D2D /* ImageViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 84064CFF2337321C00485D2D /* ImageViewController.xib */; };
+		84064D052337324200485D2D /* VideoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84064D032337324200485D2D /* VideoViewController.swift */; };
+		84064D062337324200485D2D /* VideoViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 84064D042337324200485D2D /* VideoViewController.xib */; };
+		84064D0A2337325600485D2D /* ContactViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84064D082337325600485D2D /* ContactViewController.swift */; };
+		84064D0B2337325600485D2D /* ContactViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 84064D092337325600485D2D /* ContactViewController.xib */; };
+		84064D0F2337327900485D2D /* LocationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84064D0D2337327900485D2D /* LocationViewController.swift */; };
+		84064D102337327900485D2D /* LocationViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 84064D0E2337327900485D2D /* LocationViewController.xib */; };
+		84064D132337336500485D2D /* PhotoHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84064D122337336500485D2D /* PhotoHelper.swift */; };
+		84064D162337347700485D2D /* ImageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84064D152337347700485D2D /* ImageCell.swift */; };
+		84064D1A2337350000485D2D /* UIView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84064D192337350000485D2D /* UIView+Extension.swift */; };
+		84064D1F233736C800485D2D /* AlbumCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84064D1D233736C800485D2D /* AlbumCollectionViewCell.swift */; };
+		84064D20233736C800485D2D /* AlbumCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 84064D1E233736C800485D2D /* AlbumCollectionViewCell.xib */; };
+		84064D222337384100485D2D /* UITable+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84064D212337384100485D2D /* UITable+Extension.swift */; };
+		84064D282337391D00485D2D /* SelectPhotoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84064D262337391D00485D2D /* SelectPhotoViewController.swift */; };
+		84064D292337391D00485D2D /* SelectPhotoViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 84064D272337391D00485D2D /* SelectPhotoViewController.xib */; };
+		84064D2F23373A9200485D2D /* SectionAlbumColViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84064D2D23373A9200485D2D /* SectionAlbumColViewCell.swift */; };
+		84064D3023373A9200485D2D /* SectionAlbumColViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 84064D2E23373A9200485D2D /* SectionAlbumColViewCell.xib */; };
+		84064D3323375C3500485D2D /* Constant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84064D3223375C3500485D2D /* Constant.swift */; };
 		DBABB04B23372FDC004DDCCC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBABB04A23372FDC004DDCCC /* AppDelegate.swift */; };
 		DBABB04D23372FDC004DDCCC /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBABB04C23372FDC004DDCCC /* ViewController.swift */; };
 		DBABB05023372FDC004DDCCC /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DBABB04E23372FDC004DDCCC /* Main.storyboard */; };
@@ -15,6 +34,25 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		84064CFE2337321C00485D2D /* ImageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageViewController.swift; sourceTree = "<group>"; };
+		84064CFF2337321C00485D2D /* ImageViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ImageViewController.xib; sourceTree = "<group>"; };
+		84064D032337324200485D2D /* VideoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoViewController.swift; sourceTree = "<group>"; };
+		84064D042337324200485D2D /* VideoViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = VideoViewController.xib; sourceTree = "<group>"; };
+		84064D082337325600485D2D /* ContactViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactViewController.swift; sourceTree = "<group>"; };
+		84064D092337325600485D2D /* ContactViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ContactViewController.xib; sourceTree = "<group>"; };
+		84064D0D2337327900485D2D /* LocationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationViewController.swift; sourceTree = "<group>"; };
+		84064D0E2337327900485D2D /* LocationViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LocationViewController.xib; sourceTree = "<group>"; };
+		84064D122337336500485D2D /* PhotoHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoHelper.swift; sourceTree = "<group>"; };
+		84064D152337347700485D2D /* ImageCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageCell.swift; sourceTree = "<group>"; };
+		84064D192337350000485D2D /* UIView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Extension.swift"; sourceTree = "<group>"; };
+		84064D1D233736C800485D2D /* AlbumCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlbumCollectionViewCell.swift; sourceTree = "<group>"; };
+		84064D1E233736C800485D2D /* AlbumCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AlbumCollectionViewCell.xib; sourceTree = "<group>"; };
+		84064D212337384100485D2D /* UITable+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITable+Extension.swift"; sourceTree = "<group>"; };
+		84064D262337391D00485D2D /* SelectPhotoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectPhotoViewController.swift; sourceTree = "<group>"; };
+		84064D272337391D00485D2D /* SelectPhotoViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SelectPhotoViewController.xib; sourceTree = "<group>"; };
+		84064D2D23373A9200485D2D /* SectionAlbumColViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SectionAlbumColViewCell.swift; sourceTree = "<group>"; };
+		84064D2E23373A9200485D2D /* SectionAlbumColViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SectionAlbumColViewCell.xib; sourceTree = "<group>"; };
+		84064D3223375C3500485D2D /* Constant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constant.swift; sourceTree = "<group>"; };
 		DBABB04723372FDC004DDCCC /* CLEANER.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CLEANER.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DBABB04A23372FDC004DDCCC /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		DBABB04C23372FDC004DDCCC /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -35,6 +73,148 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		84064CFC233731EC00485D2D /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				84064D0C2337326400485D2D /* Locations */,
+				84064D072337324700485D2D /* Contacts */,
+				84064D022337323000485D2D /* Videos */,
+				84064CFD2337320000485D2D /* Images */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		84064CFD2337320000485D2D /* Images */ = {
+			isa = PBXGroup;
+			children = (
+				84064D25233738F400485D2D /* SelectPhotos */,
+				84064D23233738D400485D2D /* Album */,
+			);
+			path = Images;
+			sourceTree = "<group>";
+		};
+		84064D022337323000485D2D /* Videos */ = {
+			isa = PBXGroup;
+			children = (
+				84064D032337324200485D2D /* VideoViewController.swift */,
+				84064D042337324200485D2D /* VideoViewController.xib */,
+			);
+			path = Videos;
+			sourceTree = "<group>";
+		};
+		84064D072337324700485D2D /* Contacts */ = {
+			isa = PBXGroup;
+			children = (
+				84064D082337325600485D2D /* ContactViewController.swift */,
+				84064D092337325600485D2D /* ContactViewController.xib */,
+			);
+			path = Contacts;
+			sourceTree = "<group>";
+		};
+		84064D0C2337326400485D2D /* Locations */ = {
+			isa = PBXGroup;
+			children = (
+				84064D0D2337327900485D2D /* LocationViewController.swift */,
+				84064D0E2337327900485D2D /* LocationViewController.xib */,
+			);
+			path = Locations;
+			sourceTree = "<group>";
+		};
+		84064D112337334900485D2D /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				84064D122337336500485D2D /* PhotoHelper.swift */,
+			);
+			path = Helpers;
+			sourceTree = "<group>";
+		};
+		84064D142337346900485D2D /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				84064D1B2337368900485D2D /* Images */,
+				84064D172337348000485D2D /* ImageCell */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		84064D172337348000485D2D /* ImageCell */ = {
+			isa = PBXGroup;
+			children = (
+				84064D152337347700485D2D /* ImageCell.swift */,
+			);
+			path = ImageCell;
+			sourceTree = "<group>";
+		};
+		84064D18233734E400485D2D /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				84064D192337350000485D2D /* UIView+Extension.swift */,
+				84064D212337384100485D2D /* UITable+Extension.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		84064D1B2337368900485D2D /* Images */ = {
+			isa = PBXGroup;
+			children = (
+				84064D2B233739E000485D2D /* Album */,
+			);
+			path = Images;
+			sourceTree = "<group>";
+		};
+		84064D1C2337369100485D2D /* AlbumCollectionViewCell */ = {
+			isa = PBXGroup;
+			children = (
+				84064D1D233736C800485D2D /* AlbumCollectionViewCell.swift */,
+				84064D1E233736C800485D2D /* AlbumCollectionViewCell.xib */,
+			);
+			path = AlbumCollectionViewCell;
+			sourceTree = "<group>";
+		};
+		84064D23233738D400485D2D /* Album */ = {
+			isa = PBXGroup;
+			children = (
+				84064CFE2337321C00485D2D /* ImageViewController.swift */,
+				84064CFF2337321C00485D2D /* ImageViewController.xib */,
+			);
+			path = Album;
+			sourceTree = "<group>";
+		};
+		84064D25233738F400485D2D /* SelectPhotos */ = {
+			isa = PBXGroup;
+			children = (
+				84064D262337391D00485D2D /* SelectPhotoViewController.swift */,
+				84064D272337391D00485D2D /* SelectPhotoViewController.xib */,
+			);
+			path = SelectPhotos;
+			sourceTree = "<group>";
+		};
+		84064D2B233739E000485D2D /* Album */ = {
+			isa = PBXGroup;
+			children = (
+				84064D2C233739E900485D2D /* SectionAlbumColViewCell */,
+				84064D1C2337369100485D2D /* AlbumCollectionViewCell */,
+			);
+			path = Album;
+			sourceTree = "<group>";
+		};
+		84064D2C233739E900485D2D /* SectionAlbumColViewCell */ = {
+			isa = PBXGroup;
+			children = (
+				84064D2D23373A9200485D2D /* SectionAlbumColViewCell.swift */,
+				84064D2E23373A9200485D2D /* SectionAlbumColViewCell.xib */,
+			);
+			path = SectionAlbumColViewCell;
+			sourceTree = "<group>";
+		};
+		84064D3123375C2600485D2D /* Constant */ = {
+			isa = PBXGroup;
+			children = (
+				84064D3223375C3500485D2D /* Constant.swift */,
+			);
+			path = Constant;
+			sourceTree = "<group>";
+		};
 		DBABB03E23372FDC004DDCCC = {
 			isa = PBXGroup;
 			children = (
@@ -55,6 +235,11 @@
 			isa = PBXGroup;
 			children = (
 				DBABB04A23372FDC004DDCCC /* AppDelegate.swift */,
+				84064D3123375C2600485D2D /* Constant */,
+				84064D18233734E400485D2D /* Extensions */,
+				84064D112337334900485D2D /* Helpers */,
+				84064D142337346900485D2D /* Views */,
+				84064CFC233731EC00485D2D /* Controllers */,
 				DBABB04C23372FDC004DDCCC /* ViewController.swift */,
 				DBABB04E23372FDC004DDCCC /* Main.storyboard */,
 				DBABB05123372FDD004DDCCC /* Assets.xcassets */,
@@ -123,8 +308,15 @@
 			buildActionMask = 2147483647;
 			files = (
 				DBABB05523372FDD004DDCCC /* LaunchScreen.storyboard in Resources */,
+				84064D3023373A9200485D2D /* SectionAlbumColViewCell.xib in Resources */,
+				84064D0B2337325600485D2D /* ContactViewController.xib in Resources */,
 				DBABB05223372FDD004DDCCC /* Assets.xcassets in Resources */,
+				84064D012337321C00485D2D /* ImageViewController.xib in Resources */,
+				84064D20233736C800485D2D /* AlbumCollectionViewCell.xib in Resources */,
+				84064D292337391D00485D2D /* SelectPhotoViewController.xib in Resources */,
+				84064D062337324200485D2D /* VideoViewController.xib in Resources */,
 				DBABB05023372FDC004DDCCC /* Main.storyboard in Resources */,
+				84064D102337327900485D2D /* LocationViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -136,7 +328,19 @@
 			buildActionMask = 2147483647;
 			files = (
 				DBABB04D23372FDC004DDCCC /* ViewController.swift in Sources */,
+				84064D002337321C00485D2D /* ImageViewController.swift in Sources */,
+				84064D052337324200485D2D /* VideoViewController.swift in Sources */,
+				84064D2F23373A9200485D2D /* SectionAlbumColViewCell.swift in Sources */,
+				84064D1A2337350000485D2D /* UIView+Extension.swift in Sources */,
+				84064D1F233736C800485D2D /* AlbumCollectionViewCell.swift in Sources */,
+				84064D132337336500485D2D /* PhotoHelper.swift in Sources */,
+				84064D3323375C3500485D2D /* Constant.swift in Sources */,
+				84064D0F2337327900485D2D /* LocationViewController.swift in Sources */,
+				84064D162337347700485D2D /* ImageCell.swift in Sources */,
 				DBABB04B23372FDC004DDCCC /* AppDelegate.swift in Sources */,
+				84064D0A2337325600485D2D /* ContactViewController.swift in Sources */,
+				84064D222337384100485D2D /* UITable+Extension.swift in Sources */,
+				84064D282337391D00485D2D /* SelectPhotoViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -283,13 +487,13 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 8V46A5JXJH;
+				DEVELOPMENT_TEAM = DGFP28D4W6;
 				INFOPLIST_FILE = CLEANER/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = SangNX.CLEANER;
+				PRODUCT_BUNDLE_IDENTIFIER = Sang.NER;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -301,13 +505,13 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 8V46A5JXJH;
+				DEVELOPMENT_TEAM = DGFP28D4W6;
 				INFOPLIST_FILE = CLEANER/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = SangNX.CLEANER;
+				PRODUCT_BUNDLE_IDENTIFIER = Sang.NER;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
