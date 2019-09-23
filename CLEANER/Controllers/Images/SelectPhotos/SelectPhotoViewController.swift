@@ -17,7 +17,6 @@ class SelectPhotoViewController: UIViewController {
     private var imagesDelete = [IndexPath:PHAsset]()
     private var results = [PHAsset]()
     private let imageManager = PHCachingImageManager()
-    private var images = [UIImage]()
     private var targetSize = CGSize(width: (Constant.SCREEN_WIDTH - 3)/3, height: (Constant.SCREEN_WIDTH - 3)/3)
     private var isSelectMutiple = true
     
@@ -51,7 +50,6 @@ class SelectPhotoViewController: UIViewController {
             if success {
                 DispatchQueue.main.async {
                     for indexP in Array(self.imagesDelete.keys) {
-                        self.images.remove(at: indexP.row)
                         self.results.remove(at: indexP.row)
                     }
                     self.collectionView.deleteItems(at: Array(self.imagesDelete.keys))
@@ -78,7 +76,6 @@ extension SelectPhotoViewController: UICollectionViewDataSource, UICollectionVie
         let asset = results[indexPath.row]
         imageManager.requestImage(for: asset, targetSize: self.targetSize, contentMode: .aspectFill, options: PhotosHelper.defaultImageFetchOptions, resultHandler: { image, _ in
             guard let image: UIImage = image else { return }
-            self.images.append(image)
             cell.image = image
             cell.clipsToBounds = true
             cell.viewCheck.isHidden = self.isSelectMutiple ? false : true

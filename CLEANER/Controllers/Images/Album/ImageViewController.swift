@@ -104,9 +104,13 @@ extension ImageViewController: UICollectionViewDataSource, UICollectionViewDeleg
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueCell(AlbumCollectionViewCell.self, indexPath: indexPath)
         cell.addShadow(ofColor: .black, radius: 5, offset: .zero, opacity: 0.3)
-        let key = indexPath.section == 0 ? Array(data[Album.Same]!.keys)[indexPath.row] : Array(data[Album.Action]!.keys)[indexPath.row]
-        cell.lblName.text = key.rawValue
-        cell.lblAmout.text = indexPath.section == 0 ? String(data[Album.Same]![key]!.count) : String(data[Album.Action]![key]!.count)
+        if let data = indexPath.section == 0 ? data[Album.Same] : data[Album.Action] {
+            let key = indexPath.section == 0 ? Array(data.keys)[indexPath.row] : Array(data.keys)[indexPath.row]
+            cell.lblName.text = key.rawValue
+            if let amount = data[key] {
+                cell.lblAmout.text = String(amount.count)
+            }
+        }
         return cell
     }
     

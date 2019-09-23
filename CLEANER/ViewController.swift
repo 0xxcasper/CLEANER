@@ -16,7 +16,7 @@ class ViewController: UIViewController {
     }
 
     @IBAction func image(_ sender: UIButton) {
-        self.present(UINavigationController(rootViewController: ImageViewController()), animated: true, completion: nil)
+        self.present(UINavigationController(rootViewController: VideoViewController()), animated: true, completion: nil)
     }
     
 }
