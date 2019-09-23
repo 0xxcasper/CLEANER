@@ -40,6 +40,14 @@ public struct PhotosHelper {
         return options
     }
     
+    public static var defaultVideoFetchOptions: PHVideoRequestOptions {
+        let options = PHVideoRequestOptions()
+        options.version = .original
+        options.deliveryMode = .highQualityFormat
+        options.isNetworkAccessAllowed = true
+        return options
+    }
+    
     static func getAlbum(named: String, completion: @escaping(_ album: PHAssetCollection?) -> ()) {
         DispatchQueue.global(qos: .background).async {
             let fetchOptions = PHFetchOptions()
@@ -109,7 +117,7 @@ public struct PhotosHelper {
         DispatchQueue.global(qos: .background).async {
             let fetchOptions = PHFetchOptions()
             fetchOptions.sortDescriptors = [NSSortDescriptor(key: "localizedTitle", ascending: true)]
-            let albums = PHAssetCollection.fetchAssetCollections(with: .album, subtype: .any, options: fetchOptions)
+            let albums = PHAssetCollection.fetchAssetCollections(with: .smartAlbum, subtype: .any, options: fetchOptions)
             let smartAlbums = PHAssetCollection.fetchAssetCollections(with: .smartAlbum, subtype: .any, options: fetchOptions)
             var result = Set<PHAssetCollection>()
             [albums,smartAlbums].forEach {
