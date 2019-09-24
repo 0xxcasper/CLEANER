@@ -28,6 +28,8 @@
 		84064D3323375C3500485D2D /* Constant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84064D3223375C3500485D2D /* Constant.swift */; };
 		8442F8D72339C3C900993DA7 /* VideoCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8442F8D52339C3C900993DA7 /* VideoCollectionViewCell.swift */; };
 		8442F8D82339C3C900993DA7 /* VideoCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8442F8D62339C3C900993DA7 /* VideoCollectionViewCell.xib */; };
+		84C18272233A61CA00DC7764 /* LocationCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84C18270233A61CA00DC7764 /* LocationCollectionViewCell.swift */; };
+		84C18273233A61CA00DC7764 /* LocationCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 84C18271233A61CA00DC7764 /* LocationCollectionViewCell.xib */; };
 		DBABB04B23372FDC004DDCCC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBABB04A23372FDC004DDCCC /* AppDelegate.swift */; };
 		DBABB04D23372FDC004DDCCC /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBABB04C23372FDC004DDCCC /* ViewController.swift */; };
 		DBABB05023372FDC004DDCCC /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DBABB04E23372FDC004DDCCC /* Main.storyboard */; };
@@ -57,6 +59,8 @@
 		84064D3223375C3500485D2D /* Constant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constant.swift; sourceTree = "<group>"; };
 		8442F8D52339C3C900993DA7 /* VideoCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoCollectionViewCell.swift; sourceTree = "<group>"; };
 		8442F8D62339C3C900993DA7 /* VideoCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = VideoCollectionViewCell.xib; sourceTree = "<group>"; };
+		84C18270233A61CA00DC7764 /* LocationCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationCollectionViewCell.swift; sourceTree = "<group>"; };
+		84C18271233A61CA00DC7764 /* LocationCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LocationCollectionViewCell.xib; sourceTree = "<group>"; };
 		DBABB04723372FDC004DDCCC /* CLEANER.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CLEANER.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DBABB04A23372FDC004DDCCC /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		DBABB04C23372FDC004DDCCC /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -135,6 +139,7 @@
 		84064D142337346900485D2D /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				84C1826F233A61B600DC7764 /* LocationCell */,
 				8442F8D42339C3B100993DA7 /* VideoCell */,
 				84064D1B2337368900485D2D /* Images */,
 				84064D172337348000485D2D /* ImageCell */,
@@ -227,6 +232,15 @@
 				8442F8D62339C3C900993DA7 /* VideoCollectionViewCell.xib */,
 			);
 			path = VideoCell;
+			sourceTree = "<group>";
+		};
+		84C1826F233A61B600DC7764 /* LocationCell */ = {
+			isa = PBXGroup;
+			children = (
+				84C18270233A61CA00DC7764 /* LocationCollectionViewCell.swift */,
+				84C18271233A61CA00DC7764 /* LocationCollectionViewCell.xib */,
+			);
+			path = LocationCell;
 			sourceTree = "<group>";
 		};
 		DBABB03E23372FDC004DDCCC = {
@@ -324,6 +338,7 @@
 				8442F8D82339C3C900993DA7 /* VideoCollectionViewCell.xib in Resources */,
 				DBABB05523372FDD004DDCCC /* LaunchScreen.storyboard in Resources */,
 				84064D3023373A9200485D2D /* SectionAlbumColViewCell.xib in Resources */,
+				84C18273233A61CA00DC7764 /* LocationCollectionViewCell.xib in Resources */,
 				84064D0B2337325600485D2D /* ContactViewController.xib in Resources */,
 				DBABB05223372FDD004DDCCC /* Assets.xcassets in Resources */,
 				84064D012337321C00485D2D /* ImageViewController.xib in Resources */,
@@ -348,6 +363,7 @@
 				8442F8D72339C3C900993DA7 /* VideoCollectionViewCell.swift in Sources */,
 				84064D2F23373A9200485D2D /* SectionAlbumColViewCell.swift in Sources */,
 				84064D1A2337350000485D2D /* UIView+Extension.swift in Sources */,
+				84C18272233A61CA00DC7764 /* LocationCollectionViewCell.swift in Sources */,
 				84064D1F233736C800485D2D /* AlbumCollectionViewCell.swift in Sources */,
 				84064D132337336500485D2D /* PhotoHelper.swift in Sources */,
 				84064D3323375C3500485D2D /* Constant.swift in Sources */,
@@ -503,7 +519,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = SRSNPE33B8;
+				DEVELOPMENT_TEAM = DGFP28D4W6;
 				INFOPLIST_FILE = CLEANER/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -522,7 +538,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = SRSNPE33B8;
+				DEVELOPMENT_TEAM = DGFP28D4W6;
 				INFOPLIST_FILE = CLEANER/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (

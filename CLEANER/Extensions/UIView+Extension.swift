@@ -174,3 +174,13 @@ extension TimeInterval {
         return seconds < 60 ? String(format: "00:%0.2d",seconds) : String(format: "%0.2d:%0.2d",seconds,minutes)
     }
 }
+
+extension Array {
+    public func toDictionary<Key: Hashable>(with selectKey: (Element) -> Key) -> [Key:Element] {
+        var dict = [Key:Element]()
+        for element in self {
+            dict[selectKey(element)] = element
+        }
+        return dict
+    }
+}

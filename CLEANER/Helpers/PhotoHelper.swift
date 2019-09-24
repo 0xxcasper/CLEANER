@@ -117,8 +117,24 @@ public struct PhotosHelper {
         DispatchQueue.global(qos: .background).async {
             let fetchOptions = PHFetchOptions()
             fetchOptions.sortDescriptors = [NSSortDescriptor(key: "localizedTitle", ascending: true)]
-            let albums = PHAssetCollection.fetchAssetCollections(with: .smartAlbum, subtype: .any, options: fetchOptions)
+            let albums = PHAssetCollection.fetchAssetCollections(with: .album, subtype: .any, options: fetchOptions)
             let smartAlbums = PHAssetCollection.fetchAssetCollections(with: .smartAlbum, subtype: .any, options: fetchOptions)
+            var result = Set<PHAssetCollection>()
+            [albums, smartAlbums].forEach {
+                $0.enumerateObjects { collection, index, stop in
+                    if collection.estimatedAssetCount > 0 { result.insert(collection) }
+                }
+            }
+            completion(result)
+        }
+    }
+    
+    static func getAlbumsVideos(completion:@escaping (_ albums: Set<PHAssetCollection>) -> ()) {
+        DispatchQueue.global(qos: .background).async {
+            let fetchOptions = PHFetchOptions()
+            fetchOptions.sortDescriptors = [NSSortDescriptor(key: "localizedTitle", ascending: true)]
+            let albums = PHAssetCollection.fetchAssetCollections(with: .smartAlbum, subtype: .smartAlbumVideos, options: fetchOptions)
+            let smartAlbums = PHAssetCollection.fetchAssetCollections(with: .smartAlbum, subtype: .smartAlbumVideos, options: fetchOptions)
             var result = Set<PHAssetCollection>()
             [albums,smartAlbums].forEach {
                 $0.enumerateObjects { collection, index, stop in
@@ -128,7 +144,6 @@ public struct PhotosHelper {
             completion(result)
         }
     }
-    
     
     static func getImagesFromAlbum(album: PHAssetCollection, options: PHImageRequestOptions = defaultImageFetchOptions, fetchOptions: FetchOptions = FetchOptions(), completion: @escaping (_ result: AssetFetchResult<UIImage>,_ creationDate:Date?) -> ()) {
         DispatchQueue.global(qos: .background).async {

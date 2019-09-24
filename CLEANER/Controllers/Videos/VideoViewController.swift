@@ -53,24 +53,23 @@ class VideoViewController: UIViewController {
     }
 
     private func getAllVideos() {
-        PhotosHelper.getAlbums { PHAssetCollections in
+        PhotosHelper.getAlbumsVideos { PHAssetCollections in
             PHAssetCollections.forEach({ PHAssetCollection in
-                if let localizedTitle = PHAssetCollection.localizedTitle, localizedTitle == "Videos" {                    PhotosHelper.getPHFetchResultAssetsFromAlbum(album: PHAssetCollection, { PHFetchResult in
-                        self.fetchResult = PHFetchResult
-                        self.results[TypeVideos.M]!.removeAll(); self.results[TypeVideos.Other]!.removeAll()
-                        PHFetchResult.enumerateObjects({ (PHAsset, Int, UnsafeMutablePointer) in
-                            let size = Double(self.fileSize(asset: PHAsset)/1000000)
-                            if size > 10 {
-                                self.results[TypeVideos.M]!.append(Video(size: size, duration: PHAsset.duration, asset: PHAsset))
-                            } else {
-                                self.results[TypeVideos.Other]!.append(Video(size: size, duration: PHAsset.duration, asset: PHAsset))
-                            }
-                        })
-                        DispatchQueue.main.async {
-                            self.collectionView.reloadData()
+                PhotosHelper.getPHFetchResultAssetsFromAlbum(album: PHAssetCollection, { PHFetchResult in
+                    self.fetchResult = PHFetchResult
+                    self.results[TypeVideos.M]!.removeAll(); self.results[TypeVideos.Other]!.removeAll()
+                    PHFetchResult.enumerateObjects({ (PHAsset, Int, UnsafeMutablePointer) in
+                        let size = Double(self.fileSize(asset: PHAsset)/1000000)
+                        if size > 10 && size < 100 {
+                            self.results[TypeVideos.M]!.append(Video(size: size, duration: PHAsset.duration, asset: PHAsset))
+                        } else {
+                            self.results[TypeVideos.Other]!.append(Video(size: size, duration: PHAsset.duration, asset: PHAsset))
                         }
                     })
-                }
+                    DispatchQueue.main.async {
+                        self.collectionView.reloadData()
+                    }
+                })
             })
         }
     }
