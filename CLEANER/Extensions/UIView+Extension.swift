@@ -161,3 +161,16 @@ extension UIView {
 struct AnchoredConstraints {
     var top, leading, bottom, trailing, width, height: NSLayoutConstraint?
 }
+
+extension TimeInterval {
+    func stringFromTimeInterval() -> String {
+        
+        let ti = NSInteger(self)
+        
+        let seconds = ti % 60
+        let minutes = (ti / 60) % 60
+//        let hours = (ti / 3600)
+        
+        return seconds < 60 ? String(format: "00:%0.2d",seconds) : String(format: "%0.2d:%0.2d",seconds,minutes)
+    }
+}
