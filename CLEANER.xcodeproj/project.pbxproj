@@ -26,6 +26,8 @@
 		84064D2F23373A9200485D2D /* SectionAlbumColViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84064D2D23373A9200485D2D /* SectionAlbumColViewCell.swift */; };
 		84064D3023373A9200485D2D /* SectionAlbumColViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 84064D2E23373A9200485D2D /* SectionAlbumColViewCell.xib */; };
 		84064D3323375C3500485D2D /* Constant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84064D3223375C3500485D2D /* Constant.swift */; };
+		DB51DAD623391EE000A24C34 /* ContactCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB51DAD423391EE000A24C34 /* ContactCell.swift */; };
+		DB51DAD723391EE000A24C34 /* ContactCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = DB51DAD523391EE000A24C34 /* ContactCell.xib */; };
 		DBABB04B23372FDC004DDCCC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBABB04A23372FDC004DDCCC /* AppDelegate.swift */; };
 		DBABB04D23372FDC004DDCCC /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBABB04C23372FDC004DDCCC /* ViewController.swift */; };
 		DBABB05023372FDC004DDCCC /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DBABB04E23372FDC004DDCCC /* Main.storyboard */; };
@@ -53,6 +55,8 @@
 		84064D2D23373A9200485D2D /* SectionAlbumColViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SectionAlbumColViewCell.swift; sourceTree = "<group>"; };
 		84064D2E23373A9200485D2D /* SectionAlbumColViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SectionAlbumColViewCell.xib; sourceTree = "<group>"; };
 		84064D3223375C3500485D2D /* Constant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constant.swift; sourceTree = "<group>"; };
+		DB51DAD423391EE000A24C34 /* ContactCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactCell.swift; sourceTree = "<group>"; };
+		DB51DAD523391EE000A24C34 /* ContactCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ContactCell.xib; sourceTree = "<group>"; };
 		DBABB04723372FDC004DDCCC /* CLEANER.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CLEANER.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DBABB04A23372FDC004DDCCC /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		DBABB04C23372FDC004DDCCC /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -131,6 +135,7 @@
 		84064D142337346900485D2D /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				DB51DAD323391EB900A24C34 /* ContactCell */,
 				84064D1B2337368900485D2D /* Images */,
 				84064D172337348000485D2D /* ImageCell */,
 			);
@@ -213,6 +218,15 @@
 				84064D3223375C3500485D2D /* Constant.swift */,
 			);
 			path = Constant;
+			sourceTree = "<group>";
+		};
+		DB51DAD323391EB900A24C34 /* ContactCell */ = {
+			isa = PBXGroup;
+			children = (
+				DB51DAD423391EE000A24C34 /* ContactCell.swift */,
+				DB51DAD523391EE000A24C34 /* ContactCell.xib */,
+			);
+			path = ContactCell;
 			sourceTree = "<group>";
 		};
 		DBABB03E23372FDC004DDCCC = {
@@ -315,6 +329,7 @@
 				84064D20233736C800485D2D /* AlbumCollectionViewCell.xib in Resources */,
 				84064D292337391D00485D2D /* SelectPhotoViewController.xib in Resources */,
 				84064D062337324200485D2D /* VideoViewController.xib in Resources */,
+				DB51DAD723391EE000A24C34 /* ContactCell.xib in Resources */,
 				DBABB05023372FDC004DDCCC /* Main.storyboard in Resources */,
 				84064D102337327900485D2D /* LocationViewController.xib in Resources */,
 			);
@@ -327,6 +342,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DB51DAD623391EE000A24C34 /* ContactCell.swift in Sources */,
 				DBABB04D23372FDC004DDCCC /* ViewController.swift in Sources */,
 				84064D002337321C00485D2D /* ImageViewController.swift in Sources */,
 				84064D052337324200485D2D /* VideoViewController.swift in Sources */,
