@@ -22,7 +22,7 @@ class ContactViewController: UIViewController {
     }
     
     func setupView() {
-        tbView.register(UINib(nibName: ContactCell.identifer, bundle: nil), forCellReuseIdentifier: ContactCell.identifer)
+//        tbView.register(UINib(nibName: ContactCell.identifer, bundle: nil), forCellReuseIdentifier: ContactCell.identifer)
         tbView.delegate = self
         tbView.dataSource = self
     }
@@ -42,9 +42,9 @@ extension ContactViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: ContactCell.identifer, for: indexPath) as! ContactCell
-        cell.setupCell(contact: contacts[indexPath.row])
-        return cell
+//        let cell = tableView.dequeueReusableCell(withIdentifier: ContactCell.identifer, for: indexPath) as! ContactCell
+//        cell.setupCell(contact: contacts[indexPath.row])
+        return UITableViewCell()
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {

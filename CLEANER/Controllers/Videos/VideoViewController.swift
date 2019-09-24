@@ -53,30 +53,29 @@ class VideoViewController: UIViewController {
     }
 
     private func getAllVideos() {
-        PhotosHelper.getAlbums { PHAssetCollections in
+        PhotosHelper.getAlbumsVideos { PHAssetCollections in
             PHAssetCollections.forEach({ PHAssetCollection in
-                if let localizedTitle = PHAssetCollection.localizedTitle, localizedTitle == "Videos" {                    PhotosHelper.getPHFetchResultAssetsFromAlbum(album: PHAssetCollection, { PHFetchResult in
-                        self.fetchResult = PHFetchResult
-                        self.results[TypeVideos.M]!.removeAll(); self.results[TypeVideos.Other]!.removeAll()
-                        PHFetchResult.enumerateObjects({ (PHAsset, Int, UnsafeMutablePointer) in
-                            let size = Double(self.fileSize(asset: PHAsset)/1000000)
-                            if size > 10 {
-                                self.results[TypeVideos.M]!.append(Video(size: size, duration: PHAsset.duration, asset: PHAsset))
-                            } else {
-                                self.results[TypeVideos.Other]!.append(Video(size: size, duration: PHAsset.duration, asset: PHAsset))
-                            }
-                        })
-                        DispatchQueue.main.async {
-                            self.collectionView.reloadData()
+                PhotosHelper.getPHFetchResultAssetsFromAlbum(album: PHAssetCollection, { PHFetchResult in
+                    self.fetchResult = PHFetchResult
+                    self.results[TypeVideos.M]!.removeAll(); self.results[TypeVideos.Other]!.removeAll()
+                    PHFetchResult.enumerateObjects({ (PHAsset, Int, UnsafeMutablePointer) in
+                        let size = Double(self.fileSize(asset: PHAsset)/1000000)
+                        if size > 10 && size < 100 {
+                            self.results[TypeVideos.M]!.append(Video(size: size, duration: PHAsset.duration, asset: PHAsset))
+                        } else {
+                            self.results[TypeVideos.Other]!.append(Video(size: size, duration: PHAsset.duration, asset: PHAsset))
                         }
                     })
-                }
+                    DispatchQueue.main.async {
+                        self.collectionView.reloadData()
+                    }
+                })
             })
         }
     }
     
     private func setUpCollectionView() {
-        collectionView.registerCollectionCell(ImageCell.self, fromNib: false)
+        collectionView.registerCollectionCell(VideoCollectionViewCell.self, fromNib: true)
         collectionView.register(SectionAlbumColViewCell.nib, forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: SectionAlbumColViewCell.identifier)
         if let layout = collectionView.collectionViewLayout as? UICollectionViewFlowLayout {
             layout.scrollDirection = .vertical
@@ -119,25 +118,21 @@ class VideoViewController: UIViewController {
                 }
             } else {
                 print(error as Any)
-                DispatchQueue.main.async {
-                    self.btnDelete.alpha = 0
-                }
             }
         })
     }
     
     private func playVideo() {
-
-        //        let asset = results[indexPath.row]
-        //        imageManager.requestAVAsset(forVideo: asset, options: PhotosHelper.defaultVideoFetchOptions) { (AVAsset, AVAudioMix, Data) in
-        //            if let avAsset = AVAsset, let image = self.videoSnapshot(asset: avAsset) {
-        //                DispatchQueue.main.async {
-        //                    cell.image = image
-        //                    cell.clipsToBounds = true
-        //                    cell.viewCheck.isHidden = self.isSelectMutiple ? false : true
-        //                }
-        //            }
-        //        }
+//        let asset = results[indexPath.row]
+//        imageManager.requestAVAsset(forVideo: asset, options: PhotosHelper.defaultVideoFetchOptions) { (AVAsset, AVAudioMix, Data) in
+//            if let avAsset = AVAsset, let image = self.videoSnapshot(asset: avAsset) {
+//                DispatchQueue.main.async {
+//                    cell.image = image
+//                    cell.clipsToBounds = true
+//                    cell.viewCheck.isHidden = self.isSelectMutiple ? false : true
+//                }
+//            }
+//        }
     }
 }
 
@@ -157,16 +152,21 @@ extension VideoViewController: UICollectionViewDataSource, UICollectionViewDeleg
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueCell(ImageCell.self, indexPath: indexPath)
+        let cell = collectionView.dequeueCell(VideoCollectionViewCell.self, indexPath: indexPath)
         if var videosM = self.results[TypeVideos.M], var videosOther = self.results[TypeVideos.Other] {
-            let asset = indexPath.section == 0 ? videosM[indexPath.row].asset : videosOther[indexPath.row].asset
-            if let asset = asset {
+            if let asset = indexPath.section == 0 ? videosM[indexPath.row].asset : videosOther[indexPath.row].asset {
                 imageManager.requestImage(for: asset, targetSize: targetSize, contentMode: .aspectFill, options: PhotosHelper.defaultImageFetchOptions) { (image, Data) in
                     guard let image: UIImage = image else { return }
-                    cell.image = image
+                    cell.img.image = image
                     cell.clipsToBounds = true
                     cell.viewCheck.isHidden = self.isSelectMutiple ? false : true
                 }
+            }
+            if let size = indexPath.section == 0 ? videosM[indexPath.row].size : videosOther[indexPath.row].size {
+                cell.lblSize.text = String(format: "%.2f",size) + "M"
+            }
+            if let duration = indexPath.section == 0 ? videosM[indexPath.row].durartion : videosOther[indexPath.row].durartion {
+                cell.lblTime.text = duration.stringFromTimeInterval()
             }
         }
         return cell
@@ -174,8 +174,12 @@ extension VideoViewController: UICollectionViewDataSource, UICollectionViewDeleg
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         let itemPerRow: CGFloat = 3
-        let widthCell: CGFloat = (collectionView.frame.width - itemPerRow)/itemPerRow
-        return CGSize(width: widthCell, height: widthCell)
+        let widthCell: CGFloat = (collectionView.frame.width - itemPerRow*16)/itemPerRow
+        return CGSize(width: widthCell, height: widthCell + 30)
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
+        return UIEdgeInsets(top: 0, left: 16, bottom: 0, right: 16)
     }
     
     func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
