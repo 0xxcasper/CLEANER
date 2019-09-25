@@ -14,17 +14,21 @@ class SelectPhotoViewController: UIViewController {
     @IBOutlet weak var btnDelete: UIButton!
     
     var fetchResult: PHFetchResult<PHAsset>!
+    var isLocation: Bool! = false
+    var results = [PHAsset]()
+
     private var imagesDelete = [IndexPath:PHAsset]()
-    private var results = [PHAsset]()
     private let imageManager = PHCachingImageManager()
     private var targetSize = CGSize(width: (Constant.SCREEN_WIDTH - 3)/3, height: (Constant.SCREEN_WIDTH - 3)/3)
     private var isSelectMutiple = true
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.fetchResult.enumerateObjects({ (PHAsset, Int, UnsafeMutablePointer) in
-            self.results.append(PHAsset)
-        })
+        if !isLocation {
+            self.fetchResult.enumerateObjects({ (PHAsset, Int, UnsafeMutablePointer) in
+                self.results.append(PHAsset)
+            })
+        }
         btnDelete.layer.cornerRadius = 25
         btnDelete.clipsToBounds = true
         setUpCollectionView()

@@ -15,29 +15,21 @@ class LocationViewController: UIViewController {
     @IBOutlet weak var collectionView: UICollectionView!
     
     private var data: [String: CLLocation] = [:]
-    
+    private var dataPHAssets: [String: [PHAsset]] = [:]
+
     override func viewDidLoad() {
         super.viewDidLoad()
+        getAllAlbums()
         setUpCollectionView()
     }
     
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        getAllAlbums()
-    }
-
     private func getAllAlbums() {
         PhotosHelper.getAlbums { PHAssetCollections in
             PHAssetCollections.forEach({ PHAssetCollection in
                 PhotosHelper.getAllPHFetchResultAssets({ PHFetchResult in
                     PHFetchResult.enumerateObjects({ (PHAsset, Int, UnsafeMutablePointer) in
                         if let location = PHAsset.location {
-                            self.getLocationNameWith(location: location, completion: { (String) -> (Void) in
-                                self.data.updateValue(location, forKey: String)
-                                DispatchQueue.main.async {
-                                    self.collectionView.reloadData()
-                                }
-                            })
+                            self.getLocationNameWith(location: location, phAsset: PHAsset)
                         }
                     })
                 })
@@ -45,12 +37,23 @@ class LocationViewController: UIViewController {
         }
     }
     
-    private func getLocationNameWith( location: CLLocation, completion: @escaping ((String)->(Void))) {
+    private func getLocationNameWith( location: CLLocation, phAsset: PHAsset) {
         let geoCoder = CLGeocoder()
         geoCoder.reverseGeocodeLocation(location, completionHandler: { placemarks, error -> Void in
             guard let placeMark = placemarks?.first else { return }
-            let city = placeMark.locality != nil ? placeMark.locality : placeMark.administrativeArea != nil ? placeMark.administrativeArea : placeMark.country
-            completion(city ?? "Other")
+            if let city = placeMark.locality != nil ? placeMark.locality : placeMark.administrativeArea != nil ? placeMark.administrativeArea : placeMark.country {
+                if Array(self.data.keys).contains(city) {
+                    if !self.dataPHAssets[city]!.contains(phAsset) {
+                        self.dataPHAssets[city]!.append(phAsset)
+                    }
+                } else {
+                    self.data.updateValue(location, forKey: city)
+                    self.dataPHAssets.updateValue([phAsset], forKey: city)
+                }
+            }
+            DispatchQueue.main.async {
+                self.collectionView.reloadData()
+            }
         })
     }
     
@@ -72,6 +75,7 @@ extension LocationViewController: UICollectionViewDataSource, UICollectionViewDe
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueCell(LocationCollectionViewCell.self, indexPath: indexPath)
+        cell.addShadow(ofColor: .black, radius: 5, offset: .zero, opacity: 0.3)
         let key = Array(data.keys)[indexPath.row]
         let region = MKCoordinateRegion(center: data[key]!.coordinate, span: MKCoordinateSpan(latitudeDelta: 1, longitudeDelta: 1))
         cell.lblLocation.text = key
@@ -82,11 +86,19 @@ extension LocationViewController: UICollectionViewDataSource, UICollectionViewDe
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         let itemPerRow: CGFloat = 2
         let widthCell: CGFloat = (collectionView.frame.width - (itemPerRow + 1)*16)/itemPerRow
-        return CGSize(width: widthCell, height: widthCell)
+        return CGSize(width: widthCell, height: widthCell + 10)
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
         return UIEdgeInsets(top: 16, left: 16, bottom: 0, right: 16)
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let selectPhotoVC = SelectPhotoViewController()
+        let key = Array(data.keys)[indexPath.row]
+        selectPhotoVC.isLocation = true
+        selectPhotoVC.results = self.dataPHAssets[key]!
+        self.navigationController?.pushViewController(selectPhotoVC, animated: true)
     }
 }
 
