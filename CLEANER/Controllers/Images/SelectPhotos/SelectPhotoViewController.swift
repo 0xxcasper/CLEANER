@@ -15,8 +15,9 @@ class SelectPhotoViewController: UIViewController {
     
     var fetchResult: PHFetchResult<PHAsset>!
     var isLocation: Bool! = false
-    var results = [PHAsset]()
-
+    var phCollections: [PHAssetCollection]!
+    
+    private var results = [PHAsset]()
     private var imagesDelete = [IndexPath:PHAsset]()
     private let imageManager = PHCachingImageManager()
     private var targetSize = CGSize(width: (Constant.SCREEN_WIDTH - 3)/3, height: (Constant.SCREEN_WIDTH - 3)/3)
@@ -28,6 +29,17 @@ class SelectPhotoViewController: UIViewController {
             self.fetchResult.enumerateObjects({ (PHAsset, Int, UnsafeMutablePointer) in
                 self.results.append(PHAsset)
             })
+        } else {
+            phCollections.forEach { (PHAssetCollection) in
+                PhotosHelper.getPHFetchResultAssetsFromAlbum(album: PHAssetCollection, { PHFetchResult in
+                    PHFetchResult.enumerateObjects({ (PHAsset, Int, UnsafeMutablePointer) in
+                        self.results.append(PHAsset)
+                    })
+                    DispatchQueue.main.async {
+                        self.collectionView.reloadData()
+                    }
+                })
+            }
         }
         btnDelete.layer.cornerRadius = 25
         btnDelete.clipsToBounds = true

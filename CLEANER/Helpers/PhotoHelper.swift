@@ -130,6 +130,21 @@ public struct PhotosHelper {
         }
     }
     
+    static func getAlbumsMoment(completion:@escaping (_ albums: Set<PHAssetCollection>) -> ()) {
+        DispatchQueue.global(qos: .background).async {
+            let fetchOptions = PHFetchOptions()
+            fetchOptions.sortDescriptors = [NSSortDescriptor(key: "localizedTitle", ascending: true)]
+            let smartAlbums = PHAssetCollection.fetchAssetCollections(with: .moment, subtype: .any, options: fetchOptions)
+            var result = Set<PHAssetCollection>()
+            [smartAlbums].forEach {
+                $0.enumerateObjects { collection, index, stop in
+                    if collection.estimatedAssetCount > 0 { result.insert(collection) }
+                }
+            }
+            completion(result)
+        }
+    }
+    
     static func getAlbumsVideos(completion:@escaping (_ albums: Set<PHAssetCollection>) -> ()) {
         DispatchQueue.global(qos: .background).async {
             let fetchOptions = PHFetchOptions()

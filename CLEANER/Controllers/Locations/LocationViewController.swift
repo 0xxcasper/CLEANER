@@ -15,7 +15,7 @@ class LocationViewController: UIViewController {
     @IBOutlet weak var collectionView: UICollectionView!
     
     private var data: [String: CLLocation] = [:]
-    private var dataPHAssets: [String: [PHAsset]] = [:]
+    private var dataPHAssets: [String: [PHAssetCollection]] = [:]
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -24,35 +24,31 @@ class LocationViewController: UIViewController {
     }
     
     private func getAllAlbums() {
-        PhotosHelper.getAlbums { PHAssetCollections in
-            PHAssetCollections.forEach({ PHAssetCollection in
-                PhotosHelper.getAllPHFetchResultAssets({ PHFetchResult in
-                    PHFetchResult.enumerateObjects({ (PHAsset, Int, UnsafeMutablePointer) in
-                        if let location = PHAsset.location {
-                            self.getLocationNameWith(location: location, phAsset: PHAsset)
-                        }
-                    })
-                })
+        PhotosHelper.getAlbumsMoment { (PHAssetCollections) in
+            PHAssetCollections.forEach({ (PHAssetCollection) in
+                if let location = PHAssetCollection.approximateLocation {
+                    self.getLocationNameWith(location: location, collec: PHAssetCollection)
+                }
             })
         }
     }
     
-    private func getLocationNameWith( location: CLLocation, phAsset: PHAsset) {
+    private func getLocationNameWith( location: CLLocation, collec: PHAssetCollection) {
         let geoCoder = CLGeocoder()
         geoCoder.reverseGeocodeLocation(location, completionHandler: { placemarks, error -> Void in
             guard let placeMark = placemarks?.first else { return }
             if let city = placeMark.locality != nil ? placeMark.locality : placeMark.administrativeArea != nil ? placeMark.administrativeArea : placeMark.country {
                 if Array(self.data.keys).contains(city) {
-                    if !self.dataPHAssets[city]!.contains(phAsset) {
-                        self.dataPHAssets[city]!.append(phAsset)
+                    if !self.dataPHAssets[city]!.contains(collec) {
+                        self.dataPHAssets[city]!.append(collec)
                     }
                 } else {
                     self.data.updateValue(location, forKey: city)
-                    self.dataPHAssets.updateValue([phAsset], forKey: city)
+                    self.dataPHAssets.updateValue([collec], forKey: city)
                 }
-            }
-            DispatchQueue.main.async {
-                self.collectionView.reloadData()
+                DispatchQueue.main.async {
+                    self.collectionView.reloadData()
+                }
             }
         })
     }
@@ -97,7 +93,7 @@ extension LocationViewController: UICollectionViewDataSource, UICollectionViewDe
         let selectPhotoVC = SelectPhotoViewController()
         let key = Array(data.keys)[indexPath.row]
         selectPhotoVC.isLocation = true
-        selectPhotoVC.results = self.dataPHAssets[key]!
+        selectPhotoVC.phCollections = self.dataPHAssets[key]!
         self.navigationController?.pushViewController(selectPhotoVC, animated: true)
     }
 }
