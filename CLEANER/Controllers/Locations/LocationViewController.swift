@@ -50,6 +50,7 @@ class LocationViewController: UIViewController {
                     self.collectionView.reloadData()
                 }
             }
+            print("\(self.data.count)")
         })
     }
     

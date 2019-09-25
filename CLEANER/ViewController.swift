@@ -46,7 +46,7 @@ class ViewController: UIViewController {
     }
 
     @IBAction func image(_ sender: UIButton) {
-        self.present(UINavigationController(rootViewController: LocationViewController()), animated: true, completion: nil)
+        self.present(UINavigationController(rootViewController: ContactViewController()), animated: true, completion: nil)
     }
     
 }
