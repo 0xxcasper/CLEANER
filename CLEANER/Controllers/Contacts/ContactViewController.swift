@@ -17,6 +17,8 @@ class ContactViewController: UIViewController, CNContactViewControllerDelegate {
     private var isSeaching: Bool = false
     private var listContacts: [(key: String, value: [CNContact])] = []
     private let contactStore = CNContactStore()
+    private var contactsDelete = [IndexPath:CNContact]()
+
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -25,6 +27,7 @@ class ContactViewController: UIViewController, CNContactViewControllerDelegate {
     }
     
     func setupView() {
+        tbView.register(UINib(nibName: ContactCell.identifer, bundle: nil), forCellReuseIdentifier: ContactCell.identifer)
         tbView.delegate = self
         tbView.dataSource = self
     }
@@ -59,8 +62,9 @@ extension ContactViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = UITableViewCell()
-        cell.textLabel!.text = "\(listContacts[indexPath.section].value[indexPath.row].givenName) \(listContacts[indexPath.section].value[indexPath.row].familyName)"
+        let cell = tableView.dequeueCell(reuseIdentifier: ContactCell.identifer, for: indexPath) as! ContactCell
+        cell.setupCell(contact: listContacts[indexPath.section].value[indexPath.row], index: indexPath)
+        cell.delegate = self
         return cell
     }
     
@@ -81,6 +85,16 @@ extension ContactViewController: UITableViewDelegate, UITableViewDataSource {
         }
         let viewControllerforContact = CNContactViewController(for: contact)
         _ = self.navigationController?.pushViewController(viewControllerforContact, animated: true)
+    }
+}
+
+extension ContactViewController: ContactCellDelegate {
+    func didSelectedimageCheck(index: IndexPath, contact: CNContact) {
+        <#code#>
+    }
+    
+    func didDeSelectedimageCheck(index: IndexPath, contact: CNContact) {
+        <#code#>
     }
 }
 

@@ -6,5 +6,5 @@ target 'CLEANER' do
   use_frameworks!
 
   # Pods for CLEANER
-pod 'KBContactsSelection'
+#pod 'KBContactsSelection'
 end

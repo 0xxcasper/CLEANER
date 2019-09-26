@@ -3,11 +3,13 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 51;
+	objectVersion = 50;
 	objects = {
 
 /* Begin PBXBuildFile section */
 		191D3E10BE713A1B79E272EB /* Pods_CLEANER.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A967D0F603AD4B54D2553FA1 /* Pods_CLEANER.framework */; };
+		25E67B42233C89410071AE2D /* ContactCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25E67B40233C89410071AE2D /* ContactCell.swift */; };
+		25E67B43233C89410071AE2D /* ContactCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 25E67B41233C89410071AE2D /* ContactCell.xib */; };
 		84064D002337321C00485D2D /* ImageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84064CFE2337321C00485D2D /* ImageViewController.swift */; };
 		84064D012337321C00485D2D /* ImageViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 84064CFF2337321C00485D2D /* ImageViewController.xib */; };
 		84064D052337324200485D2D /* VideoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84064D032337324200485D2D /* VideoViewController.swift */; };
@@ -39,6 +41,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		25E67B40233C89410071AE2D /* ContactCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContactCell.swift; sourceTree = "<group>"; };
+		25E67B41233C89410071AE2D /* ContactCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ContactCell.xib; sourceTree = "<group>"; };
 		2E4BB8A8CFF01A591F2F2648 /* Pods-CLEANER.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CLEANER.debug.xcconfig"; path = "Target Support Files/Pods-CLEANER/Pods-CLEANER.debug.xcconfig"; sourceTree = "<group>"; };
 		6BD3BAC1BC52EC1EA12A4BBA /* Pods-CLEANER.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CLEANER.release.xcconfig"; path = "Target Support Files/Pods-CLEANER/Pods-CLEANER.release.xcconfig"; sourceTree = "<group>"; };
 		84064CFE2337321C00485D2D /* ImageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageViewController.swift; sourceTree = "<group>"; };
@@ -86,6 +90,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		25E67B3F233C89410071AE2D /* ContactCell */ = {
+			isa = PBXGroup;
+			children = (
+				25E67B40233C89410071AE2D /* ContactCell.swift */,
+				25E67B41233C89410071AE2D /* ContactCell.xib */,
+			);
+			path = ContactCell;
+			sourceTree = "<group>";
+		};
 		3A3625EE49BACB66C69076D7 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -153,6 +166,7 @@
 		84064D142337346900485D2D /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				25E67B3F233C89410071AE2D /* ContactCell */,
 				84C1826F233A61B600DC7764 /* LocationCell */,
 				8442F8D42339C3B100993DA7 /* VideoCell */,
 				84064D1B2337368900485D2D /* Images */,
@@ -312,7 +326,6 @@
 				DBABB04323372FDC004DDCCC /* Sources */,
 				DBABB04423372FDC004DDCCC /* Frameworks */,
 				DBABB04523372FDC004DDCCC /* Resources */,
-				CAEC2083A4EE43492D1D1EAA /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -369,6 +382,7 @@
 				DBABB05223372FDD004DDCCC /* Assets.xcassets in Resources */,
 				84064D012337321C00485D2D /* ImageViewController.xib in Resources */,
 				84064D20233736C800485D2D /* AlbumCollectionViewCell.xib in Resources */,
+				25E67B43233C89410071AE2D /* ContactCell.xib in Resources */,
 				84064D292337391D00485D2D /* SelectPhotoViewController.xib in Resources */,
 				84064D062337324200485D2D /* VideoViewController.xib in Resources */,
 				DBABB05023372FDC004DDCCC /* Main.storyboard in Resources */,
@@ -401,23 +415,6 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		CAEC2083A4EE43492D1D1EAA /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-CLEANER/Pods-CLEANER-frameworks-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-CLEANER/Pods-CLEANER-frameworks-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-CLEANER/Pods-CLEANER-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -426,6 +423,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				DBABB04D23372FDC004DDCCC /* ViewController.swift in Sources */,
+				25E67B42233C89410071AE2D /* ContactCell.swift in Sources */,
 				84064D002337321C00485D2D /* ImageViewController.swift in Sources */,
 				84064D052337324200485D2D /* VideoViewController.swift in Sources */,
 				8442F8D72339C3C900993DA7 /* VideoCollectionViewCell.swift in Sources */,
