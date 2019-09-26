@@ -7,4 +7,5 @@ target 'CLEANER' do
 
   # Pods for CLEANER
 #pod 'KBContactsSelection'
+pod 'SwiftyContacts'
 end

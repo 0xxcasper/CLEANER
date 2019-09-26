@@ -14,9 +14,9 @@
             buildForArchiving = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "30EDF6DD3F9D222BC65B0D9DFB394FA0"
-               BuildableName = "KBContactsSelection.framework"
-               BlueprintName = "KBContactsSelection"
+               BlueprintIdentifier = "D9818F8F9D886E8470ABB1CB3F67E946"
+               BuildableName = "SwiftyContacts.framework"
+               BlueprintName = "SwiftyContacts"
                ReferencedContainer = "container:Pods.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>

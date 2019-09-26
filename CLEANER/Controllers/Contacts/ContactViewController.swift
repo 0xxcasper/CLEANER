@@ -9,16 +9,18 @@
 import UIKit
 import Contacts
 import ContactsUI
+import SwiftyContacts
 
-class ContactViewController: UIViewController, CNContactViewControllerDelegate {
+class ContactViewController: UIViewController, CNContactViewControllerDelegate, UISearchResultsUpdating {
     
     @IBOutlet weak var tbView: UITableView!
     private var contacts = [CNContact]()
+    private var show_contacts = [CNContact]()
     private var isSeaching: Bool = false
     private var listContacts: [(key: String, value: [CNContact])] = []
     private let contactStore = CNContactStore()
     private var contactsDelete = [IndexPath:CNContact]()
-
+    private var clone_contacts = [CNContact]()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -27,9 +29,37 @@ class ContactViewController: UIViewController, CNContactViewControllerDelegate {
     }
     
     func setupView() {
+        addSearchBar()
+        setupTableView()
+    }
+    
+    func setupTableView() {
         tbView.register(UINib(nibName: ContactCell.identifer, bundle: nil), forCellReuseIdentifier: ContactCell.identifer)
         tbView.delegate = self
         tbView.dataSource = self
+    }
+    
+    func addSearchBar() {
+        self.navigationController?.navigationBar.prefersLargeTitles = true
+        let searchController = UISearchController(searchResultsController: nil)
+        navigationItem.searchController = searchController
+        searchController.searchResultsUpdater = self
+        searchController.dimsBackgroundDuringPresentation = false
+        definesPresentationContext = true
+        self.title = "Contacts"
+    }
+    
+    func updateSearchResults(for searchController: UISearchController) {
+        filterContentForSearchText(searchText: searchController.searchBar.text!)
+    }
+    
+    func filterContentForSearchText(searchText: String, scope: String = "All") {
+        searchText != "" ? (isSeaching = true) : (isSeaching = false)
+        show_contacts.removeAll()
+        show_contacts = contacts.filter { contact in
+            return contact.givenName.lowercased().contains(searchText.lowercased()) || contact.familyName.lowercased().contains(searchText.lowercased())
+        }
+        tbView.reloadData()
     }
     
     func helperFunction() {
@@ -37,9 +67,9 @@ class ContactViewController: UIViewController, CNContactViewControllerDelegate {
         createAlphabets()
     }
     
-    
     func createAlphabets() {
         var items: [String: [CNContact]] = [:]
+        show_contacts = contacts.sorted { $0.givenName < $1.givenName }
         for contact in contacts {
             if(items.keys.contains(String(contact.givenName.prefix(1)))) {
                 items[String(contact.givenName.prefix(1))]?.append(contact)
@@ -50,20 +80,26 @@ class ContactViewController: UIViewController, CNContactViewControllerDelegate {
         listContacts = items.sorted(by: { $0.0 < $1.0 })
         tbView.reloadData()
     }
+    @IBAction func handleDeleteContacts(_ sender: Any) {
+        deleteContacts()
+        helperFunction()
+    }
 }
 
 extension ContactViewController: UITableViewDelegate, UITableViewDataSource {
     func numberOfSections(in tableView: UITableView) -> Int {
-        return isSeaching ? 0 : listContacts.count
+        return isSeaching ? 1 : listContacts.count
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return isSeaching ? contacts.count : listContacts[section].value.count
+        return isSeaching ? show_contacts.count : listContacts[section].value.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueCell(reuseIdentifier: ContactCell.identifer, for: indexPath) as! ContactCell
-        cell.setupCell(contact: listContacts[indexPath.section].value[indexPath.row], index: indexPath)
+        var contact = CNContact()
+        isSeaching ? (contact = show_contacts[indexPath.row]) : (contact = listContacts[indexPath.section].value[indexPath.row])
+        cell.setupCell(contact: contact, index: indexPath)
         cell.delegate = self
         return cell
     }
@@ -89,12 +125,17 @@ extension ContactViewController: UITableViewDelegate, UITableViewDataSource {
 }
 
 extension ContactViewController: ContactCellDelegate {
+    
     func didSelectedimageCheck(index: IndexPath, contact: CNContact) {
-        <#code#>
+        if (clone_contacts.contains(contact)) {return}
+        clone_contacts.append(contact)
+        print("sang1 \(clone_contacts.count)")
     }
     
     func didDeSelectedimageCheck(index: IndexPath, contact: CNContact) {
-        <#code#>
+        if (!clone_contacts.contains(contact)) { return }
+        if let index = clone_contacts.firstIndex(of: contact) { clone_contacts.remove(at: index) }
+        print("sang2 \(clone_contacts.count)")
     }
 }
 
@@ -120,6 +161,24 @@ extension ContactViewController {
             }
         } catch {
             print("unable to fetch contacts")
+        }
+    }
+    
+    func deleteContacts() {
+        clone_contacts.forEach { (contact) in
+            let mutableContact = contact.mutableCopy() as! CNMutableContact
+            deleteContact(Contact: mutableContact) { (result) in
+                switch result{
+                case .Success(response: let bool):
+                    if bool{
+                        print("Contact Sucessfully Deleted")
+                    }
+                    break
+                case .Error(error: let error):
+                    print(error.localizedDescription)
+                    break
+                }
+            }
         }
     }
 }

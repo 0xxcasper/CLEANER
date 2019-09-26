@@ -25,10 +25,24 @@
                     <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                 </tableView>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RBs-8J-wXe">
+                    <rect key="frame" x="87" y="737" width="240" height="61"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="61" id="2AC-oz-amd"/>
+                        <constraint firstAttribute="width" constant="240" id="xoY-3Y-3ZU"/>
+                    </constraints>
+                    <state key="normal" title="Delete"/>
+                    <connections>
+                        <action selector="handleDeleteContacts:" destination="-1" eventType="touchUpInside" id="4Vt-3U-V7w"/>
+                    </connections>
+                </button>
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
+                <constraint firstItem="RBs-8J-wXe" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="87" id="DEI-M3-sy3"/>
                 <constraint firstItem="Iak-t6-Xpb" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="EMs-fQ-4Cc"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="RBs-8J-wXe" secondAttribute="bottom" constant="64" id="FsK-ZE-xbq"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="RBs-8J-wXe" secondAttribute="trailing" constant="87" id="H95-fj-f2l"/>
                 <constraint firstItem="Iak-t6-Xpb" firstAttribute="trailing" secondItem="fnl-2z-Ty3" secondAttribute="trailing" id="Isl-fB-rI4"/>
                 <constraint firstItem="Iak-t6-Xpb" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="Xev-bt-1Sh"/>
                 <constraint firstAttribute="bottom" secondItem="Iak-t6-Xpb" secondAttribute="bottom" id="Yak-pY-RSK"/>

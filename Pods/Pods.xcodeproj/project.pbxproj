@@ -3,107 +3,193 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 51;
+	objectVersion = 50;
 	objects = {
 
 /* Begin PBXBuildFile section */
-		23F17A0A5B66EA90E82C2CA4B7778CFE /* Pods-CLEANER-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 2500C08F43A81A5AF493B3A59E6D7963 /* Pods-CLEANER-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		3E9E914FC891189DB3FDA7892BB19BF0 /* Pods-CLEANER-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = BB0D2A4C1AF16A750BF1754B866661C4 /* Pods-CLEANER-dummy.m */; };
-		F8882A0A3D6E9006D92376D44945E7C6 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3212113385A8FBBDB272BD23C409FF61 /* Foundation.framework */; };
+		1D64FF1B9BE22F9030189D42D6191C3C /* SwiftyContacts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17E2808D282D1FCF8CC7AEE58954D561 /* SwiftyContacts.swift */; };
+		22525608DEA6B568CEA9C9FDEDBF68CF /* Contacts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 72C8D19CF66FC90853426196AB728C34 /* Contacts.framework */; };
+		22B9D8D35A522EF011A3841377C5C284 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 65E580713673075DA2B874D0BE6CEACC /* Foundation.framework */; };
+		37E237E0343B23553DAFC1BBCC328F5E /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 65E580713673075DA2B874D0BE6CEACC /* Foundation.framework */; };
+		50C79B4DA829937A397D625681E5483B /* SwiftyContacts-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 7A07F3B8C21D75214415D0F32827CCCA /* SwiftyContacts-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		63188F9CDE5B209E444D89E9979C3A50 /* Pods-CLEANER-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = A21BBF0F63A3FA9D45CDAFA1E8889C10 /* Pods-CLEANER-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		B48FE50F6C1EE54298B44C2FF46B9732 /* SwiftyContacts-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 55EEC2857FFCA7BD67E34D100E9F4A21 /* SwiftyContacts-dummy.m */; };
+		FF92F437021CCC5CC41FC9F0AEB4B454 /* Pods-CLEANER-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 136FAAC6EAE8D65E9872ED30CD5CD85D /* Pods-CLEANER-dummy.m */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXContainerItemProxy section */
+		FC39154E4A918464250A2ABC471019D6 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = D9818F8F9D886E8470ABB1CB3F67E946;
+			remoteInfo = SwiftyContacts;
+		};
+/* End PBXContainerItemProxy section */
+
 /* Begin PBXFileReference section */
-		19DC502BADD9A89F2AD1F53C1E13A63B /* Pods-CLEANER.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Pods-CLEANER.modulemap"; sourceTree = "<group>"; };
-		2500C08F43A81A5AF493B3A59E6D7963 /* Pods-CLEANER-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-CLEANER-umbrella.h"; sourceTree = "<group>"; };
-		3212113385A8FBBDB272BD23C409FF61 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS12.2.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
-		34236B64CDB57F096FB6945E1EE95B11 /* Pods-CLEANER-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-CLEANER-acknowledgements.markdown"; sourceTree = "<group>"; };
-		578D35CCFB690DADBAFCD73AFCB7D39D /* Pods-CLEANER-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-CLEANER-acknowledgements.plist"; sourceTree = "<group>"; };
+		0FE16A9284669ACEEEE52E89249E58A5 /* SwiftyContacts.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = SwiftyContacts.xcconfig; sourceTree = "<group>"; };
+		131C165B508E7956DA07ED8CC43A7D60 /* SwiftyContacts-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "SwiftyContacts-prefix.pch"; sourceTree = "<group>"; };
+		136FAAC6EAE8D65E9872ED30CD5CD85D /* Pods-CLEANER-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-CLEANER-dummy.m"; sourceTree = "<group>"; };
+		17E2808D282D1FCF8CC7AEE58954D561 /* SwiftyContacts.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = SwiftyContacts.swift; path = Sources/Core/SwiftyContacts.swift; sourceTree = "<group>"; };
+		1FB445D5AB3B7506DCCA1ADF5D390943 /* Pods-CLEANER.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-CLEANER.debug.xcconfig"; sourceTree = "<group>"; };
+		33F6225670ED74ABD367F9E506E899B6 /* SwiftyContacts-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "SwiftyContacts-Info.plist"; sourceTree = "<group>"; };
+		4401BC0DA9FE9A7EE1C8F40886E0A6B6 /* Pods-CLEANER.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-CLEANER.release.xcconfig"; sourceTree = "<group>"; };
+		55EEC2857FFCA7BD67E34D100E9F4A21 /* SwiftyContacts-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "SwiftyContacts-dummy.m"; sourceTree = "<group>"; };
+		65E580713673075DA2B874D0BE6CEACC /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS12.2.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
+		6B116034C71F05A7C50035D93BC5DA1E /* SwiftyContacts.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = SwiftyContacts.modulemap; sourceTree = "<group>"; };
+		724AA3C21B1CB6C8B738A4FC3D3935B0 /* Pods-CLEANER-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-CLEANER-frameworks.sh"; sourceTree = "<group>"; };
+		72C8D19CF66FC90853426196AB728C34 /* Contacts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Contacts.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS12.2.sdk/System/Library/Frameworks/Contacts.framework; sourceTree = DEVELOPER_DIR; };
+		7A07F3B8C21D75214415D0F32827CCCA /* SwiftyContacts-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "SwiftyContacts-umbrella.h"; sourceTree = "<group>"; };
+		96F1D9D955BAC8BA4FDD4B789F923DD8 /* Pods-CLEANER-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-CLEANER-Info.plist"; sourceTree = "<group>"; };
 		9D940727FF8FB9C785EB98E56350EF41 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
-		A5B5258A14F9BF420D422A96D89BD467 /* Pods-CLEANER.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-CLEANER.debug.xcconfig"; sourceTree = "<group>"; };
-		B29811E75DD0FD5768CBADBB2F2EBBC7 /* Pods-CLEANER.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-CLEANER.release.xcconfig"; sourceTree = "<group>"; };
-		BB0D2A4C1AF16A750BF1754B866661C4 /* Pods-CLEANER-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-CLEANER-dummy.m"; sourceTree = "<group>"; };
+		9E3950BF97ABDDAE9E4EDCF4F5B47AED /* Pods-CLEANER.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Pods-CLEANER.modulemap"; sourceTree = "<group>"; };
+		A21BBF0F63A3FA9D45CDAFA1E8889C10 /* Pods-CLEANER-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-CLEANER-umbrella.h"; sourceTree = "<group>"; };
+		C253F4B905CEE192138F0084B3210EA9 /* Pods-CLEANER-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-CLEANER-acknowledgements.markdown"; sourceTree = "<group>"; };
 		DDD086B4B934B562737A383A2A29BB2A /* Pods_CLEANER.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_CLEANER.framework; path = "Pods-CLEANER.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
-		E385E92B683FAD2F180B06616652F469 /* Pods-CLEANER-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-CLEANER-Info.plist"; sourceTree = "<group>"; };
+		E9371DF98214B0848F70BB8614532053 /* Pods-CLEANER-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-CLEANER-acknowledgements.plist"; sourceTree = "<group>"; };
+		F1996C5BFD7D81A99686EDD53AA71030 /* SwiftyContacts.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = SwiftyContacts.framework; path = SwiftyContacts.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		2F2C7B1C088A377F57F376DB7C1125BD /* Frameworks */ = {
+		0B67BD7619C239063B07F63F4844042A /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F8882A0A3D6E9006D92376D44945E7C6 /* Foundation.framework in Frameworks */,
+				22525608DEA6B568CEA9C9FDEDBF68CF /* Contacts.framework in Frameworks */,
+				37E237E0343B23553DAFC1BBCC328F5E /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B45BA662C51651CE32E7032CE8E99F80 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				22B9D8D35A522EF011A3841377C5C284 /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		067C83180DBF8342D85F8D6E498A9A9F /* Pods-CLEANER */ = {
+		10E02C7D6F54D0EFFF3A3CC0A48BF32D /* Core */ = {
 			isa = PBXGroup;
 			children = (
-				19DC502BADD9A89F2AD1F53C1E13A63B /* Pods-CLEANER.modulemap */,
-				34236B64CDB57F096FB6945E1EE95B11 /* Pods-CLEANER-acknowledgements.markdown */,
-				578D35CCFB690DADBAFCD73AFCB7D39D /* Pods-CLEANER-acknowledgements.plist */,
-				BB0D2A4C1AF16A750BF1754B866661C4 /* Pods-CLEANER-dummy.m */,
-				E385E92B683FAD2F180B06616652F469 /* Pods-CLEANER-Info.plist */,
-				2500C08F43A81A5AF493B3A59E6D7963 /* Pods-CLEANER-umbrella.h */,
-				A5B5258A14F9BF420D422A96D89BD467 /* Pods-CLEANER.debug.xcconfig */,
-				B29811E75DD0FD5768CBADBB2F2EBBC7 /* Pods-CLEANER.release.xcconfig */,
+				17E2808D282D1FCF8CC7AEE58954D561 /* SwiftyContacts.swift */,
 			);
-			name = "Pods-CLEANER";
-			path = "Target Support Files/Pods-CLEANER";
+			name = Core;
 			sourceTree = "<group>";
 		};
-		4D4ECB698B7FD931397A7A915BDAE4B4 /* Products */ = {
+		1628BF05B4CAFDCC3549A101F5A10A17 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				DDD086B4B934B562737A383A2A29BB2A /* Pods_CLEANER.framework */,
+				EBB60985E4725FE75E6BFFEC18B54F34 /* iOS */,
 			);
-			name = Products;
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		97B061AD562732621BCE0D797D7B2BB5 /* Targets Support Files */ = {
+		347903B0F8E6E45A4780FE926029B3D7 /* Targets Support Files */ = {
 			isa = PBXGroup;
 			children = (
-				067C83180DBF8342D85F8D6E498A9A9F /* Pods-CLEANER */,
+				AACD1D50D7723FADBB86BDF1AF4FEF55 /* Pods-CLEANER */,
 			);
 			name = "Targets Support Files";
 			sourceTree = "<group>";
 		};
-		C0834CEBB1379A84116EF29F93051C60 /* iOS */ = {
+		7F196F3E25C46AF53398E46A4B22D7EC /* Support Files */ = {
 			isa = PBXGroup;
 			children = (
-				3212113385A8FBBDB272BD23C409FF61 /* Foundation.framework */,
+				6B116034C71F05A7C50035D93BC5DA1E /* SwiftyContacts.modulemap */,
+				0FE16A9284669ACEEEE52E89249E58A5 /* SwiftyContacts.xcconfig */,
+				55EEC2857FFCA7BD67E34D100E9F4A21 /* SwiftyContacts-dummy.m */,
+				33F6225670ED74ABD367F9E506E899B6 /* SwiftyContacts-Info.plist */,
+				131C165B508E7956DA07ED8CC43A7D60 /* SwiftyContacts-prefix.pch */,
+				7A07F3B8C21D75214415D0F32827CCCA /* SwiftyContacts-umbrella.h */,
 			);
-			name = iOS;
+			name = "Support Files";
+			path = "../Target Support Files/SwiftyContacts";
+			sourceTree = "<group>";
+		};
+		AACD1D50D7723FADBB86BDF1AF4FEF55 /* Pods-CLEANER */ = {
+			isa = PBXGroup;
+			children = (
+				9E3950BF97ABDDAE9E4EDCF4F5B47AED /* Pods-CLEANER.modulemap */,
+				C253F4B905CEE192138F0084B3210EA9 /* Pods-CLEANER-acknowledgements.markdown */,
+				E9371DF98214B0848F70BB8614532053 /* Pods-CLEANER-acknowledgements.plist */,
+				136FAAC6EAE8D65E9872ED30CD5CD85D /* Pods-CLEANER-dummy.m */,
+				724AA3C21B1CB6C8B738A4FC3D3935B0 /* Pods-CLEANER-frameworks.sh */,
+				96F1D9D955BAC8BA4FDD4B789F923DD8 /* Pods-CLEANER-Info.plist */,
+				A21BBF0F63A3FA9D45CDAFA1E8889C10 /* Pods-CLEANER-umbrella.h */,
+				1FB445D5AB3B7506DCCA1ADF5D390943 /* Pods-CLEANER.debug.xcconfig */,
+				4401BC0DA9FE9A7EE1C8F40886E0A6B6 /* Pods-CLEANER.release.xcconfig */,
+			);
+			name = "Pods-CLEANER";
+			path = "Target Support Files/Pods-CLEANER";
 			sourceTree = "<group>";
 		};
 		CF1408CF629C7361332E53B88F7BD30C = {
 			isa = PBXGroup;
 			children = (
 				9D940727FF8FB9C785EB98E56350EF41 /* Podfile */,
-				D210D550F4EA176C3123ED886F8F87F5 /* Frameworks */,
-				4D4ECB698B7FD931397A7A915BDAE4B4 /* Products */,
-				97B061AD562732621BCE0D797D7B2BB5 /* Targets Support Files */,
+				1628BF05B4CAFDCC3549A101F5A10A17 /* Frameworks */,
+				F7B9A64CBFE6F4163FFD1BCB48D9B656 /* Pods */,
+				F2C271A845E9E3EDE075D34193690E8E /* Products */,
+				347903B0F8E6E45A4780FE926029B3D7 /* Targets Support Files */,
 			);
 			sourceTree = "<group>";
 		};
-		D210D550F4EA176C3123ED886F8F87F5 /* Frameworks */ = {
+		DA11BC6EE4588C74711FBAD65960B7C1 /* SwiftyContacts */ = {
 			isa = PBXGroup;
 			children = (
-				C0834CEBB1379A84116EF29F93051C60 /* iOS */,
+				10E02C7D6F54D0EFFF3A3CC0A48BF32D /* Core */,
+				7F196F3E25C46AF53398E46A4B22D7EC /* Support Files */,
 			);
-			name = Frameworks;
+			name = SwiftyContacts;
+			path = SwiftyContacts;
+			sourceTree = "<group>";
+		};
+		EBB60985E4725FE75E6BFFEC18B54F34 /* iOS */ = {
+			isa = PBXGroup;
+			children = (
+				72C8D19CF66FC90853426196AB728C34 /* Contacts.framework */,
+				65E580713673075DA2B874D0BE6CEACC /* Foundation.framework */,
+			);
+			name = iOS;
+			sourceTree = "<group>";
+		};
+		F2C271A845E9E3EDE075D34193690E8E /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				DDD086B4B934B562737A383A2A29BB2A /* Pods_CLEANER.framework */,
+				F1996C5BFD7D81A99686EDD53AA71030 /* SwiftyContacts.framework */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		F7B9A64CBFE6F4163FFD1BCB48D9B656 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				DA11BC6EE4588C74711FBAD65960B7C1 /* SwiftyContacts */,
+			);
+			name = Pods;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
-		6188CC6FEFAB8730CAE0D2662F98F244 /* Headers */ = {
+		4253B389B8B385B8D653451EBE05D61D /* Headers */ = {
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				23F17A0A5B66EA90E82C2CA4B7778CFE /* Pods-CLEANER-umbrella.h in Headers */,
+				63188F9CDE5B209E444D89E9979C3A50 /* Pods-CLEANER-umbrella.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F1F98AEEBDE20BFB9B28BFFA26214B87 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				50C79B4DA829937A397D625681E5483B /* SwiftyContacts-umbrella.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -112,20 +198,39 @@
 /* Begin PBXNativeTarget section */
 		3C917BB6CECB9C6986E50FF437809D19 /* Pods-CLEANER */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 4E0A043F72AFFA772DBC1664519993BF /* Build configuration list for PBXNativeTarget "Pods-CLEANER" */;
+			buildConfigurationList = 7529F3CE8E7AE138F49483B2246FC8D7 /* Build configuration list for PBXNativeTarget "Pods-CLEANER" */;
 			buildPhases = (
-				6188CC6FEFAB8730CAE0D2662F98F244 /* Headers */,
-				7EACB9265E565EF64469DE2A1FF6DFA7 /* Sources */,
-				2F2C7B1C088A377F57F376DB7C1125BD /* Frameworks */,
-				81B6721058E9B52A1A95E53B4AC446E1 /* Resources */,
+				4253B389B8B385B8D653451EBE05D61D /* Headers */,
+				3656546E7667D75E1DF044231D5406AB /* Sources */,
+				B45BA662C51651CE32E7032CE8E99F80 /* Frameworks */,
+				612EC4A3DE8D4DE779315DF340F1CE20 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				CB1D9A905EB138E86A0D8C7E7915FEA8 /* PBXTargetDependency */,
+			);
+			name = "Pods-CLEANER";
+			productName = "Pods-CLEANER";
+			productReference = DDD086B4B934B562737A383A2A29BB2A /* Pods_CLEANER.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		D9818F8F9D886E8470ABB1CB3F67E946 /* SwiftyContacts */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = BBF8C7FFB904FD98E7CE76B367DEE8C9 /* Build configuration list for PBXNativeTarget "SwiftyContacts" */;
+			buildPhases = (
+				F1F98AEEBDE20BFB9B28BFFA26214B87 /* Headers */,
+				E1E10974749245381D6AB9F572440DF0 /* Sources */,
+				0B67BD7619C239063B07F63F4844042A /* Frameworks */,
+				B04139C2BDD6E2CF3E592E7AFA12369D /* Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 			);
-			name = "Pods-CLEANER";
-			productName = "Pods-CLEANER";
-			productReference = DDD086B4B934B562737A383A2A29BB2A /* Pods_CLEANER.framework */;
+			name = SwiftyContacts;
+			productName = SwiftyContacts;
+			productReference = F1996C5BFD7D81A99686EDD53AA71030 /* SwiftyContacts.framework */;
 			productType = "com.apple.product-type.framework";
 		};
 /* End PBXNativeTarget section */
@@ -138,24 +243,32 @@
 				LastUpgradeCheck = 1100;
 			};
 			buildConfigurationList = 4821239608C13582E20E6DA73FD5F1F9 /* Build configuration list for PBXProject "Pods" */;
-			compatibilityVersion = "Xcode 10.0";
+			compatibilityVersion = "Xcode 9.3";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				en,
 			);
 			mainGroup = CF1408CF629C7361332E53B88F7BD30C;
-			productRefGroup = 4D4ECB698B7FD931397A7A915BDAE4B4 /* Products */;
+			productRefGroup = F2C271A845E9E3EDE075D34193690E8E /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
 				3C917BB6CECB9C6986E50FF437809D19 /* Pods-CLEANER */,
+				D9818F8F9D886E8470ABB1CB3F67E946 /* SwiftyContacts */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
-		81B6721058E9B52A1A95E53B4AC446E1 /* Resources */ = {
+		612EC4A3DE8D4DE779315DF340F1CE20 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B04139C2BDD6E2CF3E592E7AFA12369D /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -165,15 +278,33 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
-		7EACB9265E565EF64469DE2A1FF6DFA7 /* Sources */ = {
+		3656546E7667D75E1DF044231D5406AB /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3E9E914FC891189DB3FDA7892BB19BF0 /* Pods-CLEANER-dummy.m in Sources */,
+				FF92F437021CCC5CC41FC9F0AEB4B454 /* Pods-CLEANER-dummy.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E1E10974749245381D6AB9F572440DF0 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B48FE50F6C1EE54298B44C2FF46B9732 /* SwiftyContacts-dummy.m in Sources */,
+				1D64FF1B9BE22F9030189D42D6191C3C /* SwiftyContacts.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		CB1D9A905EB138E86A0D8C7E7915FEA8 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = SwiftyContacts;
+			target = D9818F8F9D886E8470ABB1CB3F67E946 /* SwiftyContacts */;
+			targetProxy = FC39154E4A918464250A2ABC471019D6 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
 		257497152829C177993B5EC99C1D227A /* Release */ = {
@@ -236,9 +367,9 @@
 			};
 			name = Release;
 		};
-		361B4570D1B7994BFEAF72E8FCE1D977 /* Release */ = {
+		25B587A7182CA7BAF68B3F8184491041 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = B29811E75DD0FD5768CBADBB2F2EBBC7 /* Pods-CLEANER.release.xcconfig */;
+			baseConfigurationReference = 4401BC0DA9FE9A7EE1C8F40886E0A6B6 /* Pods-CLEANER.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
 				CLANG_ENABLE_OBJC_WEAK = NO;
@@ -275,12 +406,10 @@
 			};
 			name = Release;
 		};
-		6A84AAE466C738A7F60D1F7F31D3A630 /* Debug */ = {
+		48138CAFC255B203A71E4109865881C4 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = A5B5258A14F9BF420D422A96D89BD467 /* Pods-CLEANER.debug.xcconfig */;
+			baseConfigurationReference = 0FE16A9284669ACEEEE52E89249E58A5 /* SwiftyContacts.xcconfig */;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
-				CLANG_ENABLE_OBJC_WEAK = NO;
 				CODE_SIGN_IDENTITY = "";
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
@@ -290,23 +419,22 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				INFOPLIST_FILE = "Target Support Files/Pods-CLEANER/Pods-CLEANER-Info.plist";
+				GCC_PREFIX_HEADER = "Target Support Files/SwiftyContacts/SwiftyContacts-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/SwiftyContacts/SwiftyContacts-Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
-				MACH_O_TYPE = staticlib;
-				MODULEMAP_FILE = "Target Support Files/Pods-CLEANER/Pods-CLEANER.modulemap";
-				OTHER_LDFLAGS = "";
-				OTHER_LIBTOOLFLAGS = "";
-				PODS_ROOT = "$(SRCROOT)";
-				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
-				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				MODULEMAP_FILE = "Target Support Files/SwiftyContacts/SwiftyContacts.modulemap";
+				PRODUCT_MODULE_NAME = SwiftyContacts;
+				PRODUCT_NAME = SwiftyContacts;
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VERSIONING_SYSTEM = "apple-generic";
 				VERSION_INFO_PREFIX = "";
@@ -377,6 +505,80 @@
 			};
 			name = Debug;
 		};
+		E370DD4F76275C7833A8B1CFDA91F25C /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 0FE16A9284669ACEEEE52E89249E58A5 /* SwiftyContacts.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GCC_PREFIX_HEADER = "Target Support Files/SwiftyContacts/SwiftyContacts-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/SwiftyContacts/SwiftyContacts-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MODULEMAP_FILE = "Target Support Files/SwiftyContacts/SwiftyContacts.modulemap";
+				PRODUCT_MODULE_NAME = SwiftyContacts;
+				PRODUCT_NAME = SwiftyContacts;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		EE153964BBB4BD8F06FD193B720E29A1 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 1FB445D5AB3B7506DCCA1ADF5D390943 /* Pods-CLEANER.debug.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = "Target Support Files/Pods-CLEANER/Pods-CLEANER-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-CLEANER/Pods-CLEANER.modulemap";
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -389,11 +591,20 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		4E0A043F72AFFA772DBC1664519993BF /* Build configuration list for PBXNativeTarget "Pods-CLEANER" */ = {
+		7529F3CE8E7AE138F49483B2246FC8D7 /* Build configuration list for PBXNativeTarget "Pods-CLEANER" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				6A84AAE466C738A7F60D1F7F31D3A630 /* Debug */,
-				361B4570D1B7994BFEAF72E8FCE1D977 /* Release */,
+				EE153964BBB4BD8F06FD193B720E29A1 /* Debug */,
+				25B587A7182CA7BAF68B3F8184491041 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		BBF8C7FFB904FD98E7CE76B367DEE8C9 /* Build configuration list for PBXNativeTarget "SwiftyContacts" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				48138CAFC255B203A71E4109865881C4 /* Debug */,
+				E370DD4F76275C7833A8B1CFDA91F25C /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
