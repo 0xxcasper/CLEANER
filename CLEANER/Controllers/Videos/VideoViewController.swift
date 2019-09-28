@@ -46,6 +46,7 @@ class VideoViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.title = "Videos"
         btnDelete.layer.cornerRadius = 25
         btnDelete.clipsToBounds = true
         setUpCollectionView()

@@ -25,6 +25,7 @@ class SelectPhotoViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.title = "Photos"
         if !isLocation {
             self.fetchResult.enumerateObjects({ (PHAsset, Int, UnsafeMutablePointer) in
                 self.results.append(PHAsset)

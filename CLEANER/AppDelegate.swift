@@ -8,6 +8,23 @@
 
 import UIKit
 
+class CustomNavigationController: UINavigationController {
+    
+    override var preferredStatusBarStyle: UIStatusBarStyle {
+        return .lightContent
+    }
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        self.navigationBar.tintColor = .white
+        self.navigationBar.prefersLargeTitles = true
+        let textAttributes = [NSAttributedString.Key.foregroundColor:UIColor.white]
+        self.navigationBar.largeTitleTextAttributes = textAttributes
+        self.navigationBar.shadowImage = UIImage()
+        self.navigationBar.barTintColor = UIColor(displayP3Red: 21/255, green: 101/255, blue: 192/255, alpha: 1)
+    }
+}
+
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
@@ -15,7 +32,16 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-        // Override point for customization after application launch.
+        
+        window = UIWindow(frame: UIScreen.main.bounds)
+
+        let naviVC = CustomNavigationController(rootViewController: HomeViewController())
+        window?.rootViewController = naviVC
+        
+        window?.makeKeyAndVisible()
+        window?.backgroundColor = .white
+        
+        
         return true
     }
 

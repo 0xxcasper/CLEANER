@@ -32,13 +32,10 @@ class ImageViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        setUpCollectionView()
-    }
-    
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
+        self.title = "Photos"
         getAllImageFromGallary()
         getAllAlbums()
+        setUpCollectionView()
     }
     
     private func setUpCollectionView() {
