@@ -33,6 +33,8 @@
 		8442F8D82339C3C900993DA7 /* VideoCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8442F8D62339C3C900993DA7 /* VideoCollectionViewCell.xib */; };
 		84C18272233A61CA00DC7764 /* LocationCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84C18270233A61CA00DC7764 /* LocationCollectionViewCell.swift */; };
 		84C18273233A61CA00DC7764 /* LocationCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 84C18271233A61CA00DC7764 /* LocationCollectionViewCell.xib */; };
+		DB09E57F233F38520045971D /* DuplicateContact.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB09E57D233F38520045971D /* DuplicateContact.swift */; };
+		DB09E580233F38520045971D /* DuplicateContact.xib in Resources */ = {isa = PBXBuildFile; fileRef = DB09E57E233F38520045971D /* DuplicateContact.xib */; };
 		DBABB04B23372FDC004DDCCC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBABB04A23372FDC004DDCCC /* AppDelegate.swift */; };
 		DBABB04D23372FDC004DDCCC /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBABB04C23372FDC004DDCCC /* ViewController.swift */; };
 		DBABB05023372FDC004DDCCC /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DBABB04E23372FDC004DDCCC /* Main.storyboard */; };
@@ -69,6 +71,8 @@
 		84C18270233A61CA00DC7764 /* LocationCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationCollectionViewCell.swift; sourceTree = "<group>"; };
 		84C18271233A61CA00DC7764 /* LocationCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LocationCollectionViewCell.xib; sourceTree = "<group>"; };
 		A967D0F603AD4B54D2553FA1 /* Pods_CLEANER.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CLEANER.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		DB09E57D233F38520045971D /* DuplicateContact.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DuplicateContact.swift; sourceTree = "<group>"; };
+		DB09E57E233F38520045971D /* DuplicateContact.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DuplicateContact.xib; sourceTree = "<group>"; };
 		DBABB04723372FDC004DDCCC /* CLEANER.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CLEANER.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DBABB04A23372FDC004DDCCC /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		DBABB04C23372FDC004DDCCC /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -111,6 +115,7 @@
 		84064CFC233731EC00485D2D /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				DB09E57C233F38140045971D /* DuplicateContact */,
 				84064D0C2337326400485D2D /* Locations */,
 				84064D072337324700485D2D /* Contacts */,
 				84064D022337323000485D2D /* Videos */,
@@ -279,6 +284,15 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		DB09E57C233F38140045971D /* DuplicateContact */ = {
+			isa = PBXGroup;
+			children = (
+				DB09E57D233F38520045971D /* DuplicateContact.swift */,
+				DB09E57E233F38520045971D /* DuplicateContact.xib */,
+			);
+			path = DuplicateContact;
+			sourceTree = "<group>";
+		};
 		DBABB03E23372FDC004DDCCC = {
 			isa = PBXGroup;
 			children = (
@@ -385,6 +399,7 @@
 				84064D20233736C800485D2D /* AlbumCollectionViewCell.xib in Resources */,
 				25E67B43233C89410071AE2D /* ContactCell.xib in Resources */,
 				84064D292337391D00485D2D /* SelectPhotoViewController.xib in Resources */,
+				DB09E580233F38520045971D /* DuplicateContact.xib in Resources */,
 				84064D062337324200485D2D /* VideoViewController.xib in Resources */,
 				DBABB05023372FDC004DDCCC /* Main.storyboard in Resources */,
 				84064D102337327900485D2D /* LocationViewController.xib in Resources */,
@@ -442,6 +457,7 @@
 			files = (
 				DBABB04D23372FDC004DDCCC /* ViewController.swift in Sources */,
 				25E67B42233C89410071AE2D /* ContactCell.swift in Sources */,
+				DB09E57F233F38520045971D /* DuplicateContact.swift in Sources */,
 				84064D002337321C00485D2D /* ImageViewController.swift in Sources */,
 				84064D052337324200485D2D /* VideoViewController.swift in Sources */,
 				8442F8D72339C3C900993DA7 /* VideoCollectionViewCell.swift in Sources */,
