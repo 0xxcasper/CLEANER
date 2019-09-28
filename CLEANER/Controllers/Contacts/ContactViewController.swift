@@ -14,18 +14,27 @@ import SwiftyContacts
 class ContactViewController: UIViewController, CNContactViewControllerDelegate, UISearchResultsUpdating {
     
     @IBOutlet weak var tbView: UITableView!
-    private var contacts = [CNContact]()
-    private var show_contacts = [CNContact]()
-    private var isSeaching: Bool = false
-    private var listContacts: [(key: String, value: [CNContact])] = []
+    private var isSortAgain: Bool = true
+
     private let contactStore = CNContactStore()
-    private var contactsDelete = [IndexPath:CNContact]()
-    private var clone_contacts = [CNContact]()
+    private var isSeaching: Bool = false
+    //-->Base contacts
+    private var contacts = [CNContact]()
+    //-->TableView have Header
+    private var show_contacts = [CNContact]()
+    //-->TableView have Header
+    private var listContacts: [(key: String, value: [CNContact])] = []
+    //-->List contacts Delete
+    private var contactsDelete = [IndexPath : CNContact]()
 
     override func viewDidLoad() {
         super.viewDidLoad()
         setupView()
         helperFunction()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
     }
     
     func setupView() {
@@ -65,20 +74,24 @@ class ContactViewController: UIViewController, CNContactViewControllerDelegate, 
     func helperFunction() {
         fetchAllContact()
         createAlphabets()
+        tbView.reloadData()
     }
     
     func createAlphabets() {
-        var items: [String: [CNContact]] = [:]
-        show_contacts = contacts.sorted { $0.givenName < $1.givenName }
-        for contact in contacts {
-            if(items.keys.contains(String(contact.givenName.prefix(1)))) {
-                items[String(contact.givenName.prefix(1))]?.append(contact)
-            } else {
-                items.updateValue([contact], forKey: String(contact.givenName.prefix(1)))
+        if isSortAgain {
+            var items: [String: [CNContact]] = [:]
+            show_contacts = contacts.sorted { $0.givenName < $1.givenName }
+            for contact in contacts {
+                if(items.keys.contains(String(contact.givenName.prefix(1)))) {
+                    items[String(contact.givenName.prefix(1))]?.append(contact)
+                } else {
+                    items.updateValue([contact], forKey: String(contact.givenName.prefix(1)))
+                }
             }
+            listContacts = items.sorted(by: { $0.0 < $1.0 })
+            isSortAgain = false
         }
-        listContacts = items.sorted(by: { $0.0 < $1.0 })
-        tbView.reloadData()
+
     }
     @IBAction func handleDeleteContacts(_ sender: Any) {
         deleteContacts()
@@ -99,7 +112,9 @@ extension ContactViewController: UITableViewDelegate, UITableViewDataSource {
         let cell = tableView.dequeueCell(reuseIdentifier: ContactCell.identifer, for: indexPath) as! ContactCell
         var contact = CNContact()
         isSeaching ? (contact = show_contacts[indexPath.row]) : (contact = listContacts[indexPath.section].value[indexPath.row])
+        let _isSelectedImage = contactsDelete.keys.contains(indexPath)
         cell.setupCell(contact: contact, index: indexPath)
+        cell.isSelectedImage = _isSelectedImage
         cell.delegate = self
         return cell
     }
@@ -112,10 +127,10 @@ extension ContactViewController: UITableViewDelegate, UITableViewDataSource {
         return 50
     }
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        var contact = listContacts[indexPath.section].value[indexPath.row]
+        var contact = isSeaching ? show_contacts[indexPath.row] : listContacts[indexPath.section].value[indexPath.row]
         if !contact.areKeysAvailable([CNContactViewController.descriptorForRequiredKeys()]) {
             do {
-                contact = try self.contactStore.unifiedContact(withIdentifier: contact.identifier, keysToFetch: [CNContactViewController.descriptorForRequiredKeys()])
+                contact = try contactStore.unifiedContact(withIdentifier: contact.identifier, keysToFetch: [CNContactViewController.descriptorForRequiredKeys()])
             }
             catch { }
         }
@@ -127,21 +142,26 @@ extension ContactViewController: UITableViewDelegate, UITableViewDataSource {
 extension ContactViewController: ContactCellDelegate {
     
     func didSelectedimageCheck(index: IndexPath, contact: CNContact) {
-        if (clone_contacts.contains(contact)) {return}
-        clone_contacts.append(contact)
-        print("sang1 \(clone_contacts.count)")
+        if contactsDelete.values.contains(contact) {return}
+        contactsDelete.updateValue(contact, forKey: index)
     }
     
     func didDeSelectedimageCheck(index: IndexPath, contact: CNContact) {
-        if (!clone_contacts.contains(contact)) { return }
-        if let index = clone_contacts.firstIndex(of: contact) { clone_contacts.remove(at: index) }
-        print("sang2 \(clone_contacts.count)")
+        if (!contactsDelete.values.contains(contact)) { return }
+        for (_index, element) in contactsDelete.enumerated() {
+            if (element.value == Array(contactsDelete.values)[_index]) {
+                contactsDelete.removeValue(forKey: element.key)
+                return
+            }
+        }
     }
 }
 
 
 extension ContactViewController {
     func fetchAllContact() {
+        let _contactStore = CNContactStore()
+
         let keys = [
             CNContactFormatter.descriptorForRequiredKeys(for: .fullName),
             CNContactPhoneNumbersKey,
@@ -149,7 +169,7 @@ extension ContactViewController {
             ] as [Any]
         let request = CNContactFetchRequest(keysToFetch: keys as! [CNKeyDescriptor])
         do {
-            try contactStore.enumerateContacts(with: request){
+            try _contactStore.enumerateContacts(with: request){
                 (contact, stop) in
                 self.contacts.append(contact)
 //                for phoneNumber in contact.phoneNumbers {
@@ -165,20 +185,47 @@ extension ContactViewController {
     }
     
     func deleteContacts() {
-        clone_contacts.forEach { (contact) in
-            let mutableContact = contact.mutableCopy() as! CNMutableContact
-            deleteContact(Contact: mutableContact) { (result) in
-                switch result{
-                case .Success(response: let bool):
-                    if bool{
-                        print("Contact Sucessfully Deleted")
+        contactsDelete.forEach { (key, value) in
+            let req = CNSaveRequest()
+            let mutableContact = value.mutableCopy() as! CNMutableContact
+            req.delete(mutableContact)
+            do{
+                try contactStore.execute(req)
+                print("Success, deleted the data: Count:  \(contacts.count)")
+                if let index_contacts = contacts.firstIndex(of: value) { contacts.remove(at: index_contacts) }
+                if let index_show_contacts = show_contacts.firstIndex(of: value) { show_contacts.remove(at: index_show_contacts) }
+                //**--->>><<<**//
+                for (_index, element) in listContacts.enumerated() {
+                    for (_index_, contact) in element.value.enumerated() {
+                        if (contact == value) {
+                            listContacts[_index].value.remove(at: _index_)
+                            if (listContacts[_index].value.count == 0) {
+                                listContacts.remove(at: _index)
+                            }
+                            break
+                        }
                     }
-                    break
-                case .Error(error: let error):
-                    print(error.localizedDescription)
-                    break
                 }
+            } catch let e{
+                print("Error = \(e)")
             }
         }
+        contactsDelete.removeAll()
+        tbView.reloadData()
+    }
+    
+    func aaaa() {
+//        updateContact(Contact: contact) { (result) in
+//            switch result{
+//            case .Success(response: let bool):
+//                if bool{
+//                    print("Contact Sucessfully Updated")
+//                }
+//                break
+//            case .Error(error: let error):
+//                print(error.localizedDescription)
+//                break
+//            }
+//        }
     }
 }

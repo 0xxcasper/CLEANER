@@ -22,7 +22,7 @@ class ContactCell: UITableViewCell {
     @IBOutlet weak var lbl_name: UILabel!
     @IBOutlet weak var leading_imageAvt: NSLayoutConstraint!
     weak var delegate: ContactCellDelegate?
-
+    
     @IBOutlet weak var imageCheck: UIImageView!
     
     override func prepareForReuse() {
