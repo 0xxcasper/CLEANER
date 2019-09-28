@@ -11,7 +11,7 @@ import Contacts
 import ContactsUI
 import SwiftyContacts
 
-class ContactViewController: UIViewController, CNContactViewControllerDelegate, UISearchResultsUpdating {
+class ContactViewController: BaseViewController, CNContactViewControllerDelegate, UISearchResultsUpdating {
     
     @IBOutlet weak var tbView: UITableView!
     private var isSelect: Bool = true
@@ -21,7 +21,7 @@ class ContactViewController: UIViewController, CNContactViewControllerDelegate, 
     private var isSelecting: Bool = false
     //-->Base contacts
     private var contacts = [CNContact]()
-    //-->TableView have Header
+    //-->TableView dont have Header
     private var show_contacts = [CNContact]()
     //-->TableView have Header
     private var listContacts: [(key: String, value: [CNContact])] = []
@@ -85,7 +85,7 @@ class ContactViewController: UIViewController, CNContactViewControllerDelegate, 
     }
     
     func helperFunction() {
-        fetchAllContact()
+        self.contacts = fetchAllContact()
         createAlphabets()
         self.findDuplicateContacts_Name(Contacts: contacts) { (arr_duplicateContact) in
         }
@@ -99,12 +99,19 @@ class ContactViewController: UIViewController, CNContactViewControllerDelegate, 
         var items: [String: [CNContact]] = [:]
         show_contacts.removeAll()
         listContacts.removeAll()
-        show_contacts = contacts.sorted { $0.givenName < $1.givenName }
+        show_contacts = contacts.sorted {
+            return ($0.givenName)  < ($1.givenName)
+        }
         for contact in contacts {
             if(items.keys.contains(String(contact.givenName.prefix(1)))) {
                 items[String(contact.givenName.prefix(1))]?.append(contact)
             } else {
-                items.updateValue([contact], forKey: String(contact.givenName.prefix(1)))
+                var key = ""
+                String(contact.givenName.prefix(1)) != "" ? (key = String(contact.givenName.prefix(1))) : (key = "#")
+                if (key == "#") {
+                    print("")
+                }
+                items.updateValue([contact], forKey: key)
             }
         }
         listContacts = items.sorted(by: { $0.0 < $1.0 })
@@ -190,33 +197,6 @@ extension ContactViewController: ContactCellDelegate {
 
 
 extension ContactViewController {
-    func fetchAllContact() {
-        let _contactStore = CNContactStore()
-
-        let keys = [
-            CNContactFormatter.descriptorForRequiredKeys(for: .fullName),
-            CNContactPhoneNumbersKey,
-            CNContactEmailAddressesKey,
-            CNContactImageDataAvailableKey,
-            CNContactImageDataKey,
-            CNContactThumbnailImageDataKey
-            ] as [Any]
-        let request = CNContactFetchRequest(keysToFetch: keys as! [CNKeyDescriptor])
-        do {
-            try _contactStore.enumerateContacts(with: request){
-                (contact, stop) in
-                self.contacts.append(contact)
-//                for phoneNumber in contact.phoneNumbers {
-//                    if let number = phoneNumber.value as? CNPhoneNumber, let label = phoneNumber.label {
-//                        let localizedLabel = CNLabeledValue<CNPhoneNumber>.localizedString(forLabel: label)
-//                        print("\(contact.givenName) \(contact.familyName) tel:\(localizedLabel) -- \(number.stringValue), email: \(contact.emailAddresses)")
-//                    }
-//                }
-            }
-        } catch {
-            print("unable to fetch contacts")
-        }
-    }
     
     func deleteContacts() {
         let _store = CNContactStore()
@@ -334,8 +314,8 @@ extension ContactViewController {
     }
     
 //    func mergeAllDuplicates() -> CNContact {
-        
-////        let duplicates: [Array<CNContact>] = //Array of Duplicates Contacts
+    
+//        let duplicates: [Array<CNContact>] = //Array of Duplicates Contacts
 //
 //        for item in duplicates {
 //

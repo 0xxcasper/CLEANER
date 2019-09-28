@@ -35,6 +35,7 @@
 		84C18273233A61CA00DC7764 /* LocationCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 84C18271233A61CA00DC7764 /* LocationCollectionViewCell.xib */; };
 		DB09E57F233F38520045971D /* DuplicateContact.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB09E57D233F38520045971D /* DuplicateContact.swift */; };
 		DB09E580233F38520045971D /* DuplicateContact.xib in Resources */ = {isa = PBXBuildFile; fileRef = DB09E57E233F38520045971D /* DuplicateContact.xib */; };
+		DB09E583233F9C3D0045971D /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB09E582233F9C3D0045971D /* BaseViewController.swift */; };
 		DBABB04B23372FDC004DDCCC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBABB04A23372FDC004DDCCC /* AppDelegate.swift */; };
 		DBABB04D23372FDC004DDCCC /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBABB04C23372FDC004DDCCC /* ViewController.swift */; };
 		DBABB05023372FDC004DDCCC /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DBABB04E23372FDC004DDCCC /* Main.storyboard */; };
@@ -73,6 +74,7 @@
 		A967D0F603AD4B54D2553FA1 /* Pods_CLEANER.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CLEANER.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		DB09E57D233F38520045971D /* DuplicateContact.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DuplicateContact.swift; sourceTree = "<group>"; };
 		DB09E57E233F38520045971D /* DuplicateContact.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DuplicateContact.xib; sourceTree = "<group>"; };
+		DB09E582233F9C3D0045971D /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
 		DBABB04723372FDC004DDCCC /* CLEANER.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CLEANER.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DBABB04A23372FDC004DDCCC /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		DBABB04C23372FDC004DDCCC /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -115,6 +117,7 @@
 		84064CFC233731EC00485D2D /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				DB09E581233F9C1E0045971D /* BaseViewController */,
 				DB09E57C233F38140045971D /* DuplicateContact */,
 				84064D0C2337326400485D2D /* Locations */,
 				84064D072337324700485D2D /* Contacts */,
@@ -293,6 +296,14 @@
 			path = DuplicateContact;
 			sourceTree = "<group>";
 		};
+		DB09E581233F9C1E0045971D /* BaseViewController */ = {
+			isa = PBXGroup;
+			children = (
+				DB09E582233F9C3D0045971D /* BaseViewController.swift */,
+			);
+			path = BaseViewController;
+			sourceTree = "<group>";
+		};
 		DBABB03E23372FDC004DDCCC = {
 			isa = PBXGroup;
 			children = (
@@ -459,6 +470,7 @@
 				25E67B42233C89410071AE2D /* ContactCell.swift in Sources */,
 				DB09E57F233F38520045971D /* DuplicateContact.swift in Sources */,
 				84064D002337321C00485D2D /* ImageViewController.swift in Sources */,
+				DB09E583233F9C3D0045971D /* BaseViewController.swift in Sources */,
 				84064D052337324200485D2D /* VideoViewController.swift in Sources */,
 				8442F8D72339C3C900993DA7 /* VideoCollectionViewCell.swift in Sources */,
 				84064D2F23373A9200485D2D /* SectionAlbumColViewCell.swift in Sources */,
