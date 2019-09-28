@@ -46,6 +46,7 @@ class VideoViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.title = "Videos"
         btnDelete.layer.cornerRadius = 25
         btnDelete.clipsToBounds = true
         setUpCollectionView()
@@ -184,7 +185,7 @@ extension VideoViewController: UICollectionViewDataSource, UICollectionViewDeleg
     
     func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
         let sectionAlbum = collectionView.dequeueReusableSupplementaryView(ofKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: SectionAlbumColViewCell.identifier, for: indexPath) as! SectionAlbumColViewCell
-        sectionAlbum.lbl.textColor = .blue
+        sectionAlbum.lbl.textColor = UIColor(displayP3Red: 21/255, green: 101/255, blue: 192/255, alpha: 1)
         sectionAlbum.backgroundColor = .white
         if indexPath.section == 0 {
             sectionAlbum.lbl.text = TypeVideos.M.rawValue

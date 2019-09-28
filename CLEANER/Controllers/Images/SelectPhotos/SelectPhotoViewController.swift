@@ -25,6 +25,8 @@ class SelectPhotoViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.title = "Photos"
+        self.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Clear", style: UIBarButtonItem.Style.plain, target: self, action: #selector(clear))
         if !isLocation {
             self.fetchResult.enumerateObjects({ (PHAsset, Int, UnsafeMutablePointer) in
                 self.results.append(PHAsset)
@@ -44,6 +46,12 @@ class SelectPhotoViewController: UIViewController {
         btnDelete.layer.cornerRadius = 25
         btnDelete.clipsToBounds = true
         setUpCollectionView()
+    }
+    
+    @objc func clear() {
+        self.imagesDelete.removeAll()
+        self.btnDelete.alpha = 0
+        self.collectionView.reloadData()
     }
     
     private func setUpCollectionView() {

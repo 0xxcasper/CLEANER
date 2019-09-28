@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="gTV-IL-0wX" customClass="CleanerCollectionViewCell" customModule="CLEANER" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="163" height="163"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                <rect key="frame" x="0.0" y="0.0" width="163" height="163"/>
+                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                <subviews>
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="check" translatesAutoresizingMaskIntoConstraints="NO" id="BPD-3i-l3J">
+                        <rect key="frame" x="51.5" y="16" width="60" height="60"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="60" id="Fy2-71-JPk"/>
+                            <constraint firstAttribute="width" constant="60" id="RYk-52-WiB"/>
+                        </constraints>
+                    </imageView>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="PHOTO" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nKF-bQ-6qO">
+                        <rect key="frame" x="43.5" y="92" width="76" height="26.5"/>
+                        <fontDescription key="fontDescription" type="boldSystem" pointSize="22"/>
+                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Cleaner" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PdE-fe-KeW">
+                        <rect key="frame" x="55.5" y="134.5" width="52.5" height="17"/>
+                        <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="14"/>
+                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                </subviews>
+            </view>
+            <color key="backgroundColor" red="0.08235294118" green="0.39607843139999999" blue="0.75294117650000003" alpha="1" colorSpace="calibratedRGB"/>
+            <constraints>
+                <constraint firstItem="nKF-bQ-6qO" firstAttribute="centerX" secondItem="ZTg-uK-7eu" secondAttribute="centerX" id="61A-jx-hba"/>
+                <constraint firstItem="PdE-fe-KeW" firstAttribute="top" secondItem="nKF-bQ-6qO" secondAttribute="bottom" constant="16" id="7Ju-02-LJw"/>
+                <constraint firstItem="BPD-3i-l3J" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" constant="16" id="DHm-yk-Ve0"/>
+                <constraint firstItem="nKF-bQ-6qO" firstAttribute="top" secondItem="BPD-3i-l3J" secondAttribute="bottom" constant="16" id="Lmu-NL-2b6"/>
+                <constraint firstItem="BPD-3i-l3J" firstAttribute="centerX" secondItem="ZTg-uK-7eu" secondAttribute="centerX" id="UOR-LU-Ane"/>
+                <constraint firstItem="PdE-fe-KeW" firstAttribute="centerX" secondItem="ZTg-uK-7eu" secondAttribute="centerX" id="WhT-lt-MrN"/>
+            </constraints>
+            <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
+            <size key="customSize" width="163" height="163"/>
+            <connections>
+                <outlet property="ing" destination="BPD-3i-l3J" id="zSf-2m-gEE"/>
+                <outlet property="lblTitle" destination="nKF-bQ-6qO" id="mP6-LH-1FB"/>
+            </connections>
+            <point key="canvasLocation" x="219.56521739130437" y="146.31696428571428"/>
+        </collectionViewCell>
+    </objects>
+    <resources>
+        <image name="check" width="32" height="32"/>
+    </resources>
+</document>
