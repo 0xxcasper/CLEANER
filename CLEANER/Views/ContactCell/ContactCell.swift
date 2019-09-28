@@ -24,6 +24,7 @@ class ContactCell: UITableViewCell {
     weak var delegate: ContactCellDelegate?
     
     @IBOutlet weak var imageCheck: UIImageView!
+    @IBOutlet weak var imageAvt: UIImageView!
     
     override func prepareForReuse() {
         super.prepareForReuse()
@@ -50,11 +51,18 @@ class ContactCell: UITableViewCell {
         }
     }
     
-    func setupCell(contact: CNContact, index: IndexPath) {
+    func setupCell(contact: CNContact, index: IndexPath, isSelecting: Bool) {
+        print("\(contact.emailAddresses)")
         self.index = index
         self.contact = contact
         lbl_name.text = contact.givenName + " " + contact.familyName
-        
+        if isSelecting {
+            leading_imageAvt.constant = 50
+            imageCheck.isHidden = false
+        } else {
+            leading_imageAvt.constant = 16
+            imageCheck.isHidden = true
+        }
         let tapRecognizer = UITapGestureRecognizer(target: self, action: #selector(ContactCell.onTapImageCheck))
         imageCheck.isUserInteractionEnabled = true
         imageCheck.addGestureRecognizer(tapRecognizer)
@@ -63,6 +71,13 @@ class ContactCell: UITableViewCell {
         imageCheck.layer.cornerRadius = 10
         imageCheck.layer.borderColor = UIColor.gray.cgColor
         imageCheck.layer.borderWidth = 1.8
+        imageAvt.layer.cornerRadius = 14
+        //--->
+        if contact.imageDataAvailable && contact.imageData != nil && (UIImage(data: contact.imageData!) != nil) {
+            imageAvt?.image = UIImage(data: contact.imageData!)
+            return
+        }
+        imageAvt?.image = #imageLiteral(resourceName: "man")
     }
     
     @objc func onTapImageCheck() {

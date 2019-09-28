@@ -20,31 +20,32 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="T2G-T2-sc2">
-                        <rect key="frame" x="74" y="0.0" width="246" height="43.5"/>
+                        <rect key="frame" x="52" y="0.0" width="268" height="43.5"/>
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="rCX-D2-l5T">
-                        <rect key="frame" x="16" y="12" width="20" height="20"/>
+                        <rect key="frame" x="16" y="11" width="20" height="22"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstAttribute="width" constant="20" id="NRw-TP-E1X"/>
-                            <constraint firstAttribute="height" constant="20" id="gId-eU-pJX"/>
+                            <constraint firstAttribute="height" constant="22" id="gId-eU-pJX"/>
                         </constraints>
                     </imageView>
-                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="gJg-qe-b8Z">
-                        <rect key="frame" x="41" y="9.5" width="25" height="25"/>
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="man" translatesAutoresizingMaskIntoConstraints="NO" id="gJg-qe-b8Z">
+                        <rect key="frame" x="16" y="8" width="28" height="28"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstAttribute="height" constant="25" id="BuN-Jx-XVl"/>
-                            <constraint firstAttribute="width" constant="25" id="vKO-dj-BCX"/>
+                            <constraint firstAttribute="height" constant="28" id="BuN-Jx-XVl"/>
+                            <constraint firstAttribute="width" constant="28" id="vKO-dj-BCX"/>
                         </constraints>
                     </imageView>
                 </subviews>
                 <constraints>
                     <constraint firstItem="T2G-T2-sc2" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="5bW-2E-OQe"/>
                     <constraint firstAttribute="bottom" secondItem="T2G-T2-sc2" secondAttribute="bottom" id="AOd-0q-NUC"/>
-                    <constraint firstItem="gJg-qe-b8Z" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="41" id="RW8-S8-NHt"/>
+                    <constraint firstItem="gJg-qe-b8Z" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="16" id="RW8-S8-NHt"/>
                     <constraint firstItem="rCX-D2-l5T" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="XEp-Se-2oa"/>
                     <constraint firstItem="T2G-T2-sc2" firstAttribute="leading" secondItem="gJg-qe-b8Z" secondAttribute="trailing" constant="8" id="cyG-IZ-mAv"/>
                     <constraint firstItem="gJg-qe-b8Z" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="euf-AU-aJW"/>
@@ -54,6 +55,7 @@
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>
+                <outlet property="imageAvt" destination="gJg-qe-b8Z" id="lgu-Qm-0DQ"/>
                 <outlet property="imageCheck" destination="rCX-D2-l5T" id="6mh-ui-Yqj"/>
                 <outlet property="lbl_name" destination="T2G-T2-sc2" id="ov6-4r-mVZ"/>
                 <outlet property="leading_imageAvt" destination="RW8-S8-NHt" id="XU0-Ya-Ose"/>
@@ -61,4 +63,7 @@
             <point key="canvasLocation" x="131.8840579710145" y="134.59821428571428"/>
         </tableViewCell>
     </objects>
+    <resources>
+        <image name="man" width="64" height="64"/>
+    </resources>
 </document>
