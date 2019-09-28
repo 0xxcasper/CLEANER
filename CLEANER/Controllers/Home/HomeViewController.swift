@@ -9,14 +9,14 @@
 import UIKit
 
 class HomeViewController: UIViewController {
-    @IBOutlet weak var viewHeader: UIView!
     @IBOutlet weak var collectionView: UICollectionView!
-    
     @IBOutlet weak var lblStorge: UILabel!
-    private var data = ["PHOTO", "VIDEO", "CONTACT", "LOCATION"]
     @IBOutlet weak var lblPercent: UILabel!
+    @IBOutlet weak var viewBG: UIView!
+    
+    private var data = ["PHOTO", "VIDEO", "CONTACT", "LOCATION"]
     private var viewControllers = [ImageViewController(), VideoViewController(), ContactViewController(), LocationViewController()]
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         setUpView()
@@ -24,9 +24,12 @@ class HomeViewController: UIViewController {
 
     private func setUpView() {
         self.title = "Cleaner"
-        lblPercent.text = "\(UIDevice.current.usedDiskSpaceInBytes/UIDevice.current.totalDiskSpaceInBytes)%"
-        lblStorge.text = "\(UIDevice.current.freeDiskSpaceInMB) MB of \(UIDevice.current.totalDiskSpaceInGB)"
+        viewBG.backgroundColor = UIColor(displayP3Red: 21/255, green: 101/255, blue: 192/255, alpha: 1)
+        viewBG.roundCorners(corners: [.bottomRight, .bottomLeft], radius: 1000)
         
+        lblPercent.text = "\(UIDevice.current.freeDiskSpaceInBytes*100/UIDevice.current.totalDiskSpaceInBytes)%"
+        lblStorge.text = "\(UIDevice.current.freeDiskSpaceInMB) MB of \(UIDevice.current.totalDiskSpaceInGB)"
+
         collectionView.registerXibCell(CleanerCollectionViewCell.self)
         collectionView.dataSource = self
         collectionView.delegate = self
