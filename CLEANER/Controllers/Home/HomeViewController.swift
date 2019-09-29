@@ -15,7 +15,7 @@ class HomeViewController: UIViewController {
     @IBOutlet weak var viewBG: UIView!
     
     private var data = ["PHOTO", "VIDEO", "CONTACT", "LOCATION"]
-    private var viewControllers = [ImageViewController(), VideoViewController(), ContactViewController(), LocationViewController()]
+    private var viewControllers = [ImageViewController(), VideoViewController(), HomePageContactVC(), LocationViewController()]
     
     override func viewDidLoad() {
         super.viewDidLoad()

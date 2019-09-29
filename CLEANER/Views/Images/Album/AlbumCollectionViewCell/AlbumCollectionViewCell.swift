@@ -19,5 +19,9 @@ class AlbumCollectionViewCell: UICollectionViewCell {
         viewBg.layer.cornerRadius = 10
         viewBg.clipsToBounds = true
     }
+    
+    func setupCell(_ title: String) {
+        lblName.text = title
+    }
 
 }

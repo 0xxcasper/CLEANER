@@ -44,6 +44,14 @@
 		DBABB04B23372FDC004DDCCC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBABB04A23372FDC004DDCCC /* AppDelegate.swift */; };
 		DBABB05223372FDD004DDCCC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DBABB05123372FDD004DDCCC /* Assets.xcassets */; };
 		DBABB05523372FDD004DDCCC /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DBABB05323372FDD004DDCCC /* LaunchScreen.storyboard */; };
+		DBC890F4233FB00800EDBCEF /* HomePageContactVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBC890F2233FB00800EDBCEF /* HomePageContactVC.swift */; };
+		DBC890F5233FB00800EDBCEF /* HomePageContactVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = DBC890F3233FB00800EDBCEF /* HomePageContactVC.xib */; };
+		DBC890FB233FC75300EDBCEF /* HeaderDuplicateCellTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBC890F9233FC75300EDBCEF /* HeaderDuplicateCellTableViewCell.swift */; };
+		DBC890FC233FC75300EDBCEF /* HeaderDuplicateCellTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = DBC890FA233FC75300EDBCEF /* HeaderDuplicateCellTableViewCell.xib */; };
+		DBC89100233FC7DF00EDBCEF /* ContentDuplicateCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBC890FE233FC7DF00EDBCEF /* ContentDuplicateCell.swift */; };
+		DBC89101233FC7DF00EDBCEF /* ContentDuplicateCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = DBC890FF233FC7DF00EDBCEF /* ContentDuplicateCell.xib */; };
+		DBC8910423405EC900EDBCEF /* FooterMergeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBC8910223405EC900EDBCEF /* FooterMergeCell.swift */; };
+		DBC8910523405EC900EDBCEF /* FooterMergeCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = DBC8910323405EC900EDBCEF /* FooterMergeCell.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -88,6 +96,14 @@
 		DBABB05123372FDD004DDCCC /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		DBABB05423372FDD004DDCCC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		DBABB05623372FDD004DDCCC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		DBC890F2233FB00800EDBCEF /* HomePageContactVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomePageContactVC.swift; sourceTree = "<group>"; };
+		DBC890F3233FB00800EDBCEF /* HomePageContactVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HomePageContactVC.xib; sourceTree = "<group>"; };
+		DBC890F9233FC75300EDBCEF /* HeaderDuplicateCellTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderDuplicateCellTableViewCell.swift; sourceTree = "<group>"; };
+		DBC890FA233FC75300EDBCEF /* HeaderDuplicateCellTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HeaderDuplicateCellTableViewCell.xib; sourceTree = "<group>"; };
+		DBC890FE233FC7DF00EDBCEF /* ContentDuplicateCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentDuplicateCell.swift; sourceTree = "<group>"; };
+		DBC890FF233FC7DF00EDBCEF /* ContentDuplicateCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ContentDuplicateCell.xib; sourceTree = "<group>"; };
+		DBC8910223405EC900EDBCEF /* FooterMergeCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FooterMergeCell.swift; sourceTree = "<group>"; };
+		DBC8910323405EC900EDBCEF /* FooterMergeCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FooterMergeCell.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -125,7 +141,6 @@
 			children = (
 				DB09E581233F9C1E0045971D /* BaseViewController */,
 				84F3034C233F8CCE0095FC10 /* Home */,
-				DB09E57C233F38140045971D /* DuplicateContact */,
 				84064D0C2337326400485D2D /* Locations */,
 				84064D072337324700485D2D /* Contacts */,
 				84064D022337323000485D2D /* Videos */,
@@ -155,8 +170,9 @@
 		84064D072337324700485D2D /* Contacts */ = {
 			isa = PBXGroup;
 			children = (
-				84064D082337325600485D2D /* ContactViewController.swift */,
-				84064D092337325600485D2D /* ContactViewController.xib */,
+				DB09E57C233F38140045971D /* DuplicateContact */,
+				DBC890F6233FB01100EDBCEF /* ContactViewController */,
+				DBC890F1233FAFE500EDBCEF /* HomePageContactVC */,
 			);
 			path = Contacts;
 			sourceTree = "<group>";
@@ -181,6 +197,9 @@
 		84064D142337346900485D2D /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				DBC8910623405ED600EDBCEF /* FooterMergeCell */,
+				DBC890FD233FC7C400EDBCEF /* ContentDuplicateCell */,
+				DBC890F8233FC72C00EDBCEF /* HeaderDuplicateCell */,
 				84F3034D233F9D010095FC10 /* CleanerCell */,
 				25E67B3F233C89410071AE2D /* ContactCell */,
 				84C1826F233A61B600DC7764 /* LocationCell */,
@@ -365,6 +384,51 @@
 			path = CLEANER;
 			sourceTree = "<group>";
 		};
+		DBC890F1233FAFE500EDBCEF /* HomePageContactVC */ = {
+			isa = PBXGroup;
+			children = (
+				DBC890F2233FB00800EDBCEF /* HomePageContactVC.swift */,
+				DBC890F3233FB00800EDBCEF /* HomePageContactVC.xib */,
+			);
+			path = HomePageContactVC;
+			sourceTree = "<group>";
+		};
+		DBC890F6233FB01100EDBCEF /* ContactViewController */ = {
+			isa = PBXGroup;
+			children = (
+				84064D082337325600485D2D /* ContactViewController.swift */,
+				84064D092337325600485D2D /* ContactViewController.xib */,
+			);
+			path = ContactViewController;
+			sourceTree = "<group>";
+		};
+		DBC890F8233FC72C00EDBCEF /* HeaderDuplicateCell */ = {
+			isa = PBXGroup;
+			children = (
+				DBC890F9233FC75300EDBCEF /* HeaderDuplicateCellTableViewCell.swift */,
+				DBC890FA233FC75300EDBCEF /* HeaderDuplicateCellTableViewCell.xib */,
+			);
+			path = HeaderDuplicateCell;
+			sourceTree = "<group>";
+		};
+		DBC890FD233FC7C400EDBCEF /* ContentDuplicateCell */ = {
+			isa = PBXGroup;
+			children = (
+				DBC890FE233FC7DF00EDBCEF /* ContentDuplicateCell.swift */,
+				DBC890FF233FC7DF00EDBCEF /* ContentDuplicateCell.xib */,
+			);
+			path = ContentDuplicateCell;
+			sourceTree = "<group>";
+		};
+		DBC8910623405ED600EDBCEF /* FooterMergeCell */ = {
+			isa = PBXGroup;
+			children = (
+				DBC8910223405EC900EDBCEF /* FooterMergeCell.swift */,
+				DBC8910323405EC900EDBCEF /* FooterMergeCell.xib */,
+			);
+			path = FooterMergeCell;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -426,9 +490,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				8442F8D82339C3C900993DA7 /* VideoCollectionViewCell.xib in Resources */,
+				DBC890F5233FB00800EDBCEF /* HomePageContactVC.xib in Resources */,
 				84F30351233F9D290095FC10 /* CleanerCollectionViewCell.xib in Resources */,
 				DBABB05523372FDD004DDCCC /* LaunchScreen.storyboard in Resources */,
 				84F3034A233F8CC30095FC10 /* HomeViewController.xib in Resources */,
+				DBC89101233FC7DF00EDBCEF /* ContentDuplicateCell.xib in Resources */,
 				84064D3023373A9200485D2D /* SectionAlbumColViewCell.xib in Resources */,
 				84C18273233A61CA00DC7764 /* LocationCollectionViewCell.xib in Resources */,
 				84064D0B2337325600485D2D /* ContactViewController.xib in Resources */,
@@ -440,6 +506,8 @@
 				DB09E580233F38520045971D /* DuplicateContact.xib in Resources */,
 				84064D062337324200485D2D /* VideoViewController.xib in Resources */,
 				84064D102337327900485D2D /* LocationViewController.xib in Resources */,
+				DBC890FC233FC75300EDBCEF /* HeaderDuplicateCellTableViewCell.xib in Resources */,
+				DBC8910523405EC900EDBCEF /* FooterMergeCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -493,8 +561,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				25E67B42233C89410071AE2D /* ContactCell.swift in Sources */,
+				DBC8910423405EC900EDBCEF /* FooterMergeCell.swift in Sources */,
 				DB09E57F233F38520045971D /* DuplicateContact.swift in Sources */,
 				84064D002337321C00485D2D /* ImageViewController.swift in Sources */,
+				DBC89100233FC7DF00EDBCEF /* ContentDuplicateCell.swift in Sources */,
+				DBC890FB233FC75300EDBCEF /* HeaderDuplicateCellTableViewCell.swift in Sources */,
 				DB09E583233F9C3D0045971D /* BaseViewController.swift in Sources */,
 				84064D052337324200485D2D /* VideoViewController.swift in Sources */,
 				84F30349233F8CC30095FC10 /* HomeViewController.swift in Sources */,
@@ -507,6 +578,7 @@
 				84064D132337336500485D2D /* PhotoHelper.swift in Sources */,
 				84064D3323375C3500485D2D /* Constant.swift in Sources */,
 				84F30350233F9D290095FC10 /* CleanerCollectionViewCell.swift in Sources */,
+				DBC890F4233FB00800EDBCEF /* HomePageContactVC.swift in Sources */,
 				84064D0F2337327900485D2D /* LocationViewController.swift in Sources */,
 				84064D162337347700485D2D /* ImageCell.swift in Sources */,
 				DBABB04B23372FDC004DDCCC /* AppDelegate.swift in Sources */,

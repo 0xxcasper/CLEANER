@@ -27,7 +27,9 @@ class BaseViewController: UIViewController {
             CNContactEmailAddressesKey,
             CNContactImageDataAvailableKey,
             CNContactImageDataKey,
-            CNContactThumbnailImageDataKey
+            CNContactThumbnailImageDataKey,
+            CNContactDepartmentNameKey,
+            CNContactJobTitleKey,
             ] as [Any]
         let request = CNContactFetchRequest(keysToFetch: keys as! [CNKeyDescriptor])
         do {
@@ -44,5 +46,173 @@ class BaseViewController: UIViewController {
             print("unable to fetch contacts")
         }
         return contacts
+    }
+    
+    func findDuplicateContacts_Name(Contacts contacts : [CNContact], completionHandler : @escaping (_ result : [Array<CNContact>]) -> ()){
+        let arrfullNames : [String?] = contacts.map{CNContactFormatter.string(from: $0, style: .fullName)}
+        var contactGroupedByDuplicated : [Array<CNContact>] = [Array<CNContact>]()
+        if let fullNames : [String] = arrfullNames as? [String]{
+            let uniqueArray = Array(Set(fullNames))
+            var contactGroupedByUnique = [Array<CNContact>]()
+            for fullName in uniqueArray {
+                let group = contacts.filter {
+                    CNContactFormatter.string(from: $0, style: .fullName) == fullName
+                }
+                contactGroupedByUnique.append(group)
+            }
+            for items in contactGroupedByUnique{
+                if items.count > 1 {
+                    contactGroupedByDuplicated.append(items)
+                }
+            }
+        }
+        completionHandler(contactGroupedByDuplicated)
+    }
+    
+    func findDuplicateContacts_Email(Contacts contacts : [CNContact], completionHandler : @escaping (_ result : [Array<CNContact>]) -> ()){
+        var arr_emails: [String] = []
+        var contactGroupedByDuplicated : [Array<CNContact>] = [Array<CNContact>]()
+        
+        contacts.forEach { (contact) in
+            for emailAddress in contact.emailAddresses {
+                arr_emails.append(emailAddress.value as String)
+            }
+        }
+        let uniqueArray = Array(Set(arr_emails))
+        var contactGroupedByUnique = [Array<CNContact>]()
+        
+        for _email in uniqueArray {
+            var group: [CNContact] = []
+            contacts.forEach { (contact) in
+                for emailAddress in contact.emailAddresses {
+                    if (emailAddress.value as String) == _email {
+                        group.append(contact)
+                    }
+                }
+            }
+            contactGroupedByUnique.append(group)
+        }
+        for items in contactGroupedByUnique{
+            if items.count > 1 {
+                contactGroupedByDuplicated.append(items)
+            }
+        }
+        
+        completionHandler(contactGroupedByDuplicated)
+    }
+    
+    func findDuplicateContacts_Phone(Contacts contacts : [CNContact], completionHandler : @escaping (_ result : [Array<CNContact>]) -> ()){
+        var arr_phones: [String] = []
+        var contactGroupedByDuplicated : [Array<CNContact>] = [Array<CNContact>]()
+        
+        contacts.forEach { (contact) in
+            for phone_number in contact.phoneNumbers {
+                arr_phones.append((phone_number.value as CNPhoneNumber).stringValue)
+            }
+        }
+        let uniqueArray = Array(Set(arr_phones))
+        var contactGroupedByUnique = [Array<CNContact>]()
+        
+        for _phone in uniqueArray {
+            var group: [CNContact] = []
+            contacts.forEach { (contact) in
+                for phoneNumber in contact.phoneNumbers {
+                    if (phoneNumber.value as CNPhoneNumber).stringValue == _phone {
+                        group.append(contact)
+                    }
+                }
+            }
+            contactGroupedByUnique.append(group)
+        }
+        for items in contactGroupedByUnique{
+            if items.count > 1 {
+                contactGroupedByDuplicated.append(items)
+            }
+        }
+        completionHandler(contactGroupedByDuplicated)
+    }
+    
+    func mergeAllDuplicates(contacts : [[CNContact]]) -> CNContact {
+        let duplicates: [Array<CNContact>] = contacts
+        let newContact = CNMutableContact()
+
+        for item in duplicates {
+            
+            var namePrefix: [String] = [String]()
+            var givenName: [String] = [String]()
+            var middleName: [String] = [String]()
+            var familyName: [String] = [String]()
+            var nickname: [String] = [String]()
+            var phoneNumbers: [CNPhoneNumber] = [CNPhoneNumber]()
+            var emailAddresses: [NSString] = [NSString]()            
+            // Filter
+            for items in item {
+                namePrefix.append(items.namePrefix)
+                givenName.append(items.givenName)
+                middleName.append(items.middleName)
+                familyName.append(items.familyName)
+                nickname.append(items.nickname)
+
+                for number in items.phoneNumbers {
+                    phoneNumbers.append(number.value)
+                }
+                for email in items.emailAddresses {
+                    emailAddresses.append(email.value)
+                }
+                
+            }
+            newContact.namePrefix = Array(Set(namePrefix))[0]
+            newContact.givenName = Array(Set(givenName))[0]
+            newContact.middleName = Array(Set(middleName))[0]
+            newContact.familyName = Array(Set(familyName))[0]
+            newContact.nickname = Array(Set(nickname))[0]
+
+            for item in Array(Set(phoneNumbers)) {
+                newContact.phoneNumbers.append(CNLabeledValue(label: CNLabelHome, value: item))
+            }
+            for item in Array(Set(emailAddresses)) {
+                newContact.emailAddresses.append(CNLabeledValue(label: CNLabelHome, value: item))
+            }
+        }
+        return newContact
+    }
+    
+    func _addContact(contact: CNContact) {
+        let mutableContact = contact.mutableCopy() as! CNMutableContact
+        addContact(Contact: mutableContact) { (result) in
+            switch result{
+            case .Success(response: let bool):
+                if bool{
+                    print("Contact Sucessfully Added")
+                }
+                break
+            case .Error(error: let error):
+                print(error.localizedDescription)
+                break
+            }
+        }
+    }
+    
+    func noInfoName(contacts: [CNContact]) -> [CNContact] {
+        let _contacts = contacts.filter { $0.givenName == "" &&  $0.familyName == "" }
+        return _contacts
+    }
+    
+    func noInfoPhone(contacts: [CNContact]) -> [CNContact] {
+        let _contacts = contacts.filter { $0.phoneNumbers.count == 0 }
+        return _contacts
+    }
+    
+    func noInfoEmail(contacts: [CNContact]) -> [CNContact] {
+        var _contact: [CNContact] = []
+        for (_, value) in contacts.enumerated() {
+            value.emailAddresses.forEach { (email) in
+                if((email.value as String) == "") {
+                    _contact.append(value)
+                    return
+                }
+            }
+        }
+        return _contact
     }
 }
