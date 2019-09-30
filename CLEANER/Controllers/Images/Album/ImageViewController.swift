@@ -10,8 +10,8 @@ import UIKit
 import Photos
 
 enum Album: String {
-    case Same = "Same"
-    case Action = "Action"
+    case Same = "Duplicate"
+    case Action = "Animation"
 }
 
 enum TypeAlbum: String {
