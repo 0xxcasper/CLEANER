@@ -178,15 +178,8 @@ extension ContactViewController: UITableViewDelegate, UITableViewDataSource {
         return 50
     }
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        var contact = isSeaching ? show_contacts[indexPath.row] : listContacts[indexPath.section].value[indexPath.row]
-        if !contact.areKeysAvailable([CNContactViewController.descriptorForRequiredKeys()]) {
-            do {
-                contact = try contactStore.unifiedContact(withIdentifier: contact.identifier, keysToFetch: [CNContactViewController.descriptorForRequiredKeys()])
-            }
-            catch { }
-        }
-        let viewControllerforContact = CNContactViewController(for: contact)
-        _ = self.navigationController?.pushViewController(viewControllerforContact, animated: true)
+        let contact = isSeaching ? show_contacts[indexPath.row] : listContacts[indexPath.section].value[indexPath.row]
+        pushtoContactVCApple(_contact: contact)
     }
 }
 

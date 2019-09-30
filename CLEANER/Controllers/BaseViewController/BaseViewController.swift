@@ -215,4 +215,46 @@ class BaseViewController: UIViewController {
         }
         return _contact
     }
+    
+    func saveData(data: [String:[CNContact]]) {
+        do {
+            let data = try NSKeyedArchiver.archivedData(withRootObject: data, requiringSecureCoding: false)
+            UserDefaults.standard.set(data, forKey: Key_Backup)
+        } catch {
+            print("Error")
+        }
+    }
+    
+    func loadData() -> [String:[CNContact]]? {
+        if let data = UserDefaults.standard.data(forKey: Key_Backup) {
+            return try! NSKeyedUnarchiver.unarchiveTopLevelObjectWithData(data) as? [String:[CNContact]]
+        } else {
+            return nil
+        }
+    }
+    func remove() {
+        UserDefaults.standard.removeObject(forKey: Key_Backup)
+    }
+    
+    func pushtoContactVCApple(_contact: CNContact) {
+        let _contactStore = CNContactStore()
+        var contact = _contact
+
+        if !_contact.areKeysAvailable([CNContactViewController.descriptorForRequiredKeys()]) {
+            do {
+                contact = try _contactStore.unifiedContact(withIdentifier: contact.identifier, keysToFetch: [CNContactViewController.descriptorForRequiredKeys()])
+            }
+            catch { }
+        }
+        let viewControllerforContact = CNContactViewController(for: contact)
+        DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + Double(Int64(0.1 * Double(NSEC_PER_SEC))) / Double(NSEC_PER_SEC), execute: {
+            let statusBar = UIApplication.shared.value(forKeyPath: "statusBarWindow.statusBar") as? UIView
+            statusBar?.backgroundColor = UIColor(displayP3Red: 21/255, green: 101/255, blue: 192/255, alpha: 1)
+            for view in self.navigationController?.navigationBar.subviews ?? [] {
+                view.tintColor = UIColor.white
+                view.backgroundColor = UIColor(displayP3Red: 21/255, green: 101/255, blue: 192/255, alpha: 1)
+            }
+        })
+        self.navigationController?.pushViewController(viewControllerforContact, animated: true)
+    }
 }

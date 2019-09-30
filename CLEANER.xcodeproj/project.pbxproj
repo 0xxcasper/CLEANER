@@ -52,6 +52,12 @@
 		DBC89101233FC7DF00EDBCEF /* ContentDuplicateCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = DBC890FF233FC7DF00EDBCEF /* ContentDuplicateCell.xib */; };
 		DBC8910423405EC900EDBCEF /* FooterMergeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBC8910223405EC900EDBCEF /* FooterMergeCell.swift */; };
 		DBC8910523405EC900EDBCEF /* FooterMergeCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = DBC8910323405EC900EDBCEF /* FooterMergeCell.xib */; };
+		DBC8910A234249D500EDBCEF /* BackupList.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBC89108234249D500EDBCEF /* BackupList.swift */; };
+		DBC8910B234249D500EDBCEF /* BackupList.xib in Resources */ = {isa = PBXBuildFile; fileRef = DBC89109234249D500EDBCEF /* BackupList.xib */; };
+		DBC8910E23424A4300EDBCEF /* BackupCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBC8910C23424A4300EDBCEF /* BackupCell.swift */; };
+		DBC8910F23424A4300EDBCEF /* BackupCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = DBC8910D23424A4300EDBCEF /* BackupCell.xib */; };
+		DBC891142342608400EDBCEF /* ListContactsBackup.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBC891122342608400EDBCEF /* ListContactsBackup.swift */; };
+		DBC891152342608400EDBCEF /* ListContactsBackup.xib in Resources */ = {isa = PBXBuildFile; fileRef = DBC891132342608400EDBCEF /* ListContactsBackup.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -104,6 +110,12 @@
 		DBC890FF233FC7DF00EDBCEF /* ContentDuplicateCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ContentDuplicateCell.xib; sourceTree = "<group>"; };
 		DBC8910223405EC900EDBCEF /* FooterMergeCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FooterMergeCell.swift; sourceTree = "<group>"; };
 		DBC8910323405EC900EDBCEF /* FooterMergeCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FooterMergeCell.xib; sourceTree = "<group>"; };
+		DBC89108234249D500EDBCEF /* BackupList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackupList.swift; sourceTree = "<group>"; };
+		DBC89109234249D500EDBCEF /* BackupList.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BackupList.xib; sourceTree = "<group>"; };
+		DBC8910C23424A4300EDBCEF /* BackupCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackupCell.swift; sourceTree = "<group>"; };
+		DBC8910D23424A4300EDBCEF /* BackupCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BackupCell.xib; sourceTree = "<group>"; };
+		DBC891122342608400EDBCEF /* ListContactsBackup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListContactsBackup.swift; sourceTree = "<group>"; };
+		DBC891132342608400EDBCEF /* ListContactsBackup.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ListContactsBackup.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -170,6 +182,8 @@
 		84064D072337324700485D2D /* Contacts */ = {
 			isa = PBXGroup;
 			children = (
+				DBC891112342606900EDBCEF /* ListContactsBackup */,
+				DBC891072342499E00EDBCEF /* BackupList */,
 				DB09E57C233F38140045971D /* DuplicateContact */,
 				DBC890F6233FB01100EDBCEF /* ContactViewController */,
 				DBC890F1233FAFE500EDBCEF /* HomePageContactVC */,
@@ -197,6 +211,7 @@
 		84064D142337346900485D2D /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				DBC891102342526400EDBCEF /* BackupCell */,
 				DBC8910623405ED600EDBCEF /* FooterMergeCell */,
 				DBC890FD233FC7C400EDBCEF /* ContentDuplicateCell */,
 				DBC890F8233FC72C00EDBCEF /* HeaderDuplicateCell */,
@@ -429,6 +444,33 @@
 			path = FooterMergeCell;
 			sourceTree = "<group>";
 		};
+		DBC891072342499E00EDBCEF /* BackupList */ = {
+			isa = PBXGroup;
+			children = (
+				DBC89108234249D500EDBCEF /* BackupList.swift */,
+				DBC89109234249D500EDBCEF /* BackupList.xib */,
+			);
+			path = BackupList;
+			sourceTree = "<group>";
+		};
+		DBC891102342526400EDBCEF /* BackupCell */ = {
+			isa = PBXGroup;
+			children = (
+				DBC8910C23424A4300EDBCEF /* BackupCell.swift */,
+				DBC8910D23424A4300EDBCEF /* BackupCell.xib */,
+			);
+			path = BackupCell;
+			sourceTree = "<group>";
+		};
+		DBC891112342606900EDBCEF /* ListContactsBackup */ = {
+			isa = PBXGroup;
+			children = (
+				DBC891122342608400EDBCEF /* ListContactsBackup.swift */,
+				DBC891132342608400EDBCEF /* ListContactsBackup.xib */,
+			);
+			path = ListContactsBackup;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -492,6 +534,7 @@
 				8442F8D82339C3C900993DA7 /* VideoCollectionViewCell.xib in Resources */,
 				DBC890F5233FB00800EDBCEF /* HomePageContactVC.xib in Resources */,
 				84F30351233F9D290095FC10 /* CleanerCollectionViewCell.xib in Resources */,
+				DBC8910F23424A4300EDBCEF /* BackupCell.xib in Resources */,
 				DBABB05523372FDD004DDCCC /* LaunchScreen.storyboard in Resources */,
 				84F3034A233F8CC30095FC10 /* HomeViewController.xib in Resources */,
 				DBC89101233FC7DF00EDBCEF /* ContentDuplicateCell.xib in Resources */,
@@ -504,8 +547,10 @@
 				25E67B43233C89410071AE2D /* ContactCell.xib in Resources */,
 				84064D292337391D00485D2D /* SelectPhotoViewController.xib in Resources */,
 				DB09E580233F38520045971D /* DuplicateContact.xib in Resources */,
+				DBC891152342608400EDBCEF /* ListContactsBackup.xib in Resources */,
 				84064D062337324200485D2D /* VideoViewController.xib in Resources */,
 				84064D102337327900485D2D /* LocationViewController.xib in Resources */,
+				DBC8910B234249D500EDBCEF /* BackupList.xib in Resources */,
 				DBC890FC233FC75300EDBCEF /* HeaderDuplicateCellTableViewCell.xib in Resources */,
 				DBC8910523405EC900EDBCEF /* FooterMergeCell.xib in Resources */,
 			);
@@ -568,6 +613,7 @@
 				DBC890FB233FC75300EDBCEF /* HeaderDuplicateCellTableViewCell.swift in Sources */,
 				DB09E583233F9C3D0045971D /* BaseViewController.swift in Sources */,
 				84064D052337324200485D2D /* VideoViewController.swift in Sources */,
+				DBC891142342608400EDBCEF /* ListContactsBackup.swift in Sources */,
 				84F30349233F8CC30095FC10 /* HomeViewController.swift in Sources */,
 				8442F8D72339C3C900993DA7 /* VideoCollectionViewCell.swift in Sources */,
 				84064D2F23373A9200485D2D /* SectionAlbumColViewCell.swift in Sources */,
@@ -575,9 +621,11 @@
 				84C18272233A61CA00DC7764 /* LocationCollectionViewCell.swift in Sources */,
 				84F30353233FA2680095FC10 /* UIDevice+Extension.swift in Sources */,
 				84064D1F233736C800485D2D /* AlbumCollectionViewCell.swift in Sources */,
+				DBC8910A234249D500EDBCEF /* BackupList.swift in Sources */,
 				84064D132337336500485D2D /* PhotoHelper.swift in Sources */,
 				84064D3323375C3500485D2D /* Constant.swift in Sources */,
 				84F30350233F9D290095FC10 /* CleanerCollectionViewCell.swift in Sources */,
+				DBC8910E23424A4300EDBCEF /* BackupCell.swift in Sources */,
 				DBC890F4233FB00800EDBCEF /* HomePageContactVC.swift in Sources */,
 				84064D0F2337327900485D2D /* LocationViewController.swift in Sources */,
 				84064D162337347700485D2D /* ImageCell.swift in Sources */,

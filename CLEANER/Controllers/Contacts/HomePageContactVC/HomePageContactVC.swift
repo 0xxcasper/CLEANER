@@ -76,7 +76,7 @@ extension HomePageContactVC: UICollectionViewDataSource, UICollectionViewDelegat
                 self.navigationController?.pushViewController(vc, animated: true)
                 break
             default:
-                let vc = ContactViewController()
+                let vc = BackupList()
                 self.navigationController?.pushViewController(vc, animated: true)
                 break
             }

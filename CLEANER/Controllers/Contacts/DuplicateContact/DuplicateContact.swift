@@ -34,7 +34,10 @@ class DuplicateContact: BaseViewController {
         setupView()
         setupData()
     }
-    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        setupData()
+    }
     
     func setupData() {
         contacts.removeAll()
@@ -61,9 +64,6 @@ class DuplicateContact: BaseViewController {
     
     func setupView() {
         self.title = "Duplicate"
-//        //Button
-//        let btn_select = UIBarButtonItem(title: "Select", style: .plain, target: self, action: #selector(handle_Select))
-//        navigationItem.rightBarButtonItems = [btn_select]
         setupTableView()
         btnMerge.alpha = 0
         btnMerge.layer.cornerRadius = 25
@@ -156,14 +156,18 @@ extension DuplicateContact: UITableViewDelegate, UITableViewDataSource {
         }
     }
     
-
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        if (listDuplicate[indexPath.section].count != indexPath.row) {
+            let contact_ = listDuplicate[indexPath.section][indexPath.row]
+            self.pushtoContactVCApple(_contact: contact_)
+        }
+    }
+    
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         let header = tableView.dequeueReusableCell(withIdentifier: _HeaderDuplicateCellTableViewCell)
         header?.backgroundColor = .white
         return header
     }
-    
-    
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         if (listDuplicate[indexPath.section].count == indexPath.row) {
@@ -172,7 +176,6 @@ extension DuplicateContact: UITableViewDelegate, UITableViewDataSource {
         return 65
     }
     
-
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
         return 50
     }
