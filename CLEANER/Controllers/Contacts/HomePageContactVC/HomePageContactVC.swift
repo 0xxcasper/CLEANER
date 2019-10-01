@@ -11,7 +11,7 @@ import Contacts
 import ContactsUI
 import SwiftyContacts
 
-class HomePageContactVC: UIViewController {
+class HomePageContactVC: BaseViewController {
     
     @IBOutlet weak var collectionView: UICollectionView!
     private var data: [[String : [String]]] = [
@@ -47,8 +47,47 @@ extension HomePageContactVC: UICollectionViewDataSource, UICollectionViewDelegat
     }
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "AlbumCollectionViewCell", for: indexPath) as! AlbumCollectionViewCell
+        var amount = 0
         cell.addShadow(ofColor: .black, radius: 5, offset: .zero, opacity: 0.3)
-        cell.setupCell(Array(data[indexPath.section].values)[0][indexPath.row])
+        switch indexPath.section {
+        case 0:
+            switch indexPath.row {
+            case 0:
+                amount = fetchAllContact().count
+                break
+            default:
+                amount = loadData()?.count ?? 0
+            }
+        case 1:
+            switch indexPath.row {
+            case 0:
+                findDuplicateContacts_Name(Contacts: fetchAllContact()) { (contacts) in
+                    amount = contacts.count
+                }
+                break
+            case 1:
+                findDuplicateContacts_Phone(Contacts: fetchAllContact()) { (contacts) in
+                    amount = contacts.count
+                }
+                break
+            default:
+                findDuplicateContacts_Email(Contacts: fetchAllContact()) { (contacts) in
+                    amount = contacts.count
+                }
+            }
+        default:
+            switch indexPath.row {
+            case 0:
+                amount = noInfoName(contacts: fetchAllContact()).count
+                break
+            case 1:
+                amount = noInfoPhone(contacts: fetchAllContact()).count
+                break
+            default:
+                amount = noInfoEmail(contacts: fetchAllContact()).count
+            }
+        }
+        cell.setupCell(Array(data[indexPath.section].values)[0][indexPath.row], amount: String(amount))
         return cell
     }
     

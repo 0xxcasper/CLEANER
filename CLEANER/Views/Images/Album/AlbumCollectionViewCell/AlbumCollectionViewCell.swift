@@ -20,8 +20,9 @@ class AlbumCollectionViewCell: UICollectionViewCell {
         viewBg.clipsToBounds = true
     }
     
-    func setupCell(_ title: String) {
+    func setupCell(_ title: String, amount: String) {
         lblName.text = title
+        lblAmout.text = amount
     }
 
 }

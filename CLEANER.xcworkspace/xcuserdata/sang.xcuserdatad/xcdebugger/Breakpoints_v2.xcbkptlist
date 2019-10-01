@@ -10,13 +10,13 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "CLEANER/Controllers/Images/SelectPhotos/SelectPhotoViewController.swift"
-            timestampString = "591170328.918474"
+            timestampString = "591601854.0813119"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "109"
             endingLineNumber = "109"
-            landmarkName = "collectionView(_:didSelectItemAt:)"
-            landmarkType = "7">
+            landmarkName = "SelectPhotoViewController"
+            landmarkType = "21">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -26,12 +26,12 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "CLEANER/Controllers/Images/SelectPhotos/SelectPhotoViewController.swift"
-            timestampString = "591170388.542894"
+            timestampString = "591601854.08251"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "116"
             endingLineNumber = "116"
-            landmarkName = "collectionView(_:didDeselectItemAt:)"
+            landmarkName = "collectionView(_:didSelectItemAt:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
