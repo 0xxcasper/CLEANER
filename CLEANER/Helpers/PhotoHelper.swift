@@ -9,6 +9,7 @@
 //-->https://github.com/DroidsOnRoids/PhotosHelper/blob/master/PhotosHelper.swift<--//
 import Foundation
 import Photos
+import UIKit
 
 public enum AssetFetchResult<T> {
     case Assets([T])

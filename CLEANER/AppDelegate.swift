@@ -18,12 +18,22 @@ class CustomNavigationController: UINavigationController {
         super.viewDidLoad()
         self.navigationBar.tintColor = .white
         self.navigationBar.prefersLargeTitles = true
+        self.navigationBar.barTintColor = UIColor(displayP3Red: 21/255, green: 101/255, blue: 192/255, alpha: 1)
+        if #available(iOS 13, *) {
+            let appearance = navigationBar.standardAppearance
+            appearance.backgroundColor = UIColor(displayP3Red: 21/255, green: 101/255, blue: 192/255, alpha: 1)
+            appearance.shadowImage = nil
+            appearance.shadowColor = nil
+            let textAttributes = [NSAttributedString.Key.foregroundColor:UIColor.white]
+            appearance.largeTitleTextAttributes = textAttributes
+            appearance.titleTextAttributes = textAttributes
+            navigationBar.scrollEdgeAppearance = appearance;
+        }
         let textAttributes = [NSAttributedString.Key.foregroundColor:UIColor.white]
         self.navigationBar.largeTitleTextAttributes = textAttributes
         self.navigationBar.titleTextAttributes = textAttributes
         self.navigationBar.isTranslucent = false
         self.navigationBar.shadowImage = UIImage()
-        self.navigationBar.barTintColor = UIColor(displayP3Red: 21/255, green: 101/255, blue: 192/255, alpha: 1)
     }
 }
 

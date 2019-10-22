@@ -7,6 +7,8 @@
 //
 
 import UIKit
+import UserNotifications
+import Photos
 
 class HomeViewController: UIViewController {
     @IBOutlet weak var collectionView: UICollectionView!
@@ -20,13 +22,20 @@ class HomeViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setUpView()
+        
+        PHPhotoLibrary.requestAuthorization { (status) in
+            
+        }
+    }
+    
+    override func viewWillLayoutSubviews() {
+        super.viewWillLayoutSubviews()
+        viewBG.backgroundColor = UIColor(displayP3Red: 21/255, green: 101/255, blue: 192/255, alpha: 1)
+        viewBG.roundCorners(corners: [.bottomRight, .bottomLeft], radius: 1000)
     }
 
     private func setUpView() {
         self.title = "Cleaner"
-        viewBG.backgroundColor = UIColor(displayP3Red: 21/255, green: 101/255, blue: 192/255, alpha: 1)
-        viewBG.roundCorners(corners: [.bottomRight, .bottomLeft], radius: 1000)
-        
         lblPercent.text = "\(UIDevice.current.freeDiskSpaceInBytes*100/UIDevice.current.totalDiskSpaceInBytes)%"
         lblStorge.text = "\(UIDevice.current.freeDiskSpaceInMB) MB of \(UIDevice.current.totalDiskSpaceInGB)"
 
