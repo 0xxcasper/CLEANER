@@ -23,8 +23,11 @@ class HomePageContactVC: BaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.title = "Contacts"
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
         setUpCollectionView()
-
     }
     
     private func setUpCollectionView() {
@@ -32,6 +35,7 @@ class HomePageContactVC: BaseViewController {
         collectionView.register(SectionAlbumColViewCell.nib, forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: SectionAlbumColViewCell.identifier)
         collectionView.dataSource = self
         collectionView.delegate = self
+        collectionView.reloadData()
     }
 }
 

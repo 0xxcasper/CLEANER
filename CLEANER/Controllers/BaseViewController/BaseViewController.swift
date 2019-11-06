@@ -247,14 +247,14 @@ class BaseViewController: UIViewController {
             catch { }
         }
         let viewControllerforContact = CNContactViewController(for: contact)
-        DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + Double(Int64(0.1 * Double(NSEC_PER_SEC))) / Double(NSEC_PER_SEC), execute: {
-            let statusBar = UIApplication.shared.value(forKeyPath: "statusBarWindow.statusBar") as? UIView
-            statusBar?.backgroundColor = UIColor(displayP3Red: 21/255, green: 101/255, blue: 192/255, alpha: 1)
-            for view in self.navigationController?.navigationBar.subviews ?? [] {
-                view.tintColor = UIColor.white
-                view.backgroundColor = UIColor(displayP3Red: 21/255, green: 101/255, blue: 192/255, alpha: 1)
-            }
-        })
+//        DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + Double(Int64(0.1 * Double(NSEC_PER_SEC))) / Double(NSEC_PER_SEC), execute: {
+//            let statusBar = UIApplication.shared.value(forKeyPath: "statusBarWindow.statusBar") as? UIView
+//            statusBar?.backgroundColor = UIColor(displayP3Red: 21/255, green: 101/255, blue: 192/255, alpha: 1)
+//            for view in self.navigationController?.navigationBar.subviews ?? [] {
+//                view.tintColor = UIColor.white
+//                view.backgroundColor = UIColor(displayP3Red: 21/255, green: 101/255, blue: 192/255, alpha: 1)
+//            }
+//        })
         self.navigationController?.pushViewController(viewControllerforContact, animated: true)
     }
 }

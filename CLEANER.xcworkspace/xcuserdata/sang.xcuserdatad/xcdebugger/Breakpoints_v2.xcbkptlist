@@ -1,16 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Bucket
+   uuid = "1A4302B3-CD81-42CE-B5C9-58D3E1C753A2"
    type = "0"
    version = "2.0">
    <Breakpoints>
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
+            uuid = "E002B10D-09C1-48B4-AE15-6A57AEA2C126"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "CLEANER/Controllers/Images/SelectPhotos/SelectPhotoViewController.swift"
-            timestampString = "591601854.0813119"
+            timestampString = "591604034.736195"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "109"
@@ -22,16 +24,33 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
+            uuid = "1A199F52-276F-4759-9E81-21BD114B3C72"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "CLEANER/Controllers/Images/SelectPhotos/SelectPhotoViewController.swift"
-            timestampString = "591601854.08251"
+            timestampString = "591604034.736277"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "116"
             endingLineNumber = "116"
             landmarkName = "collectionView(_:didSelectItemAt:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "BC632E24-F5C3-478D-A101-799BBCED3E17"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "CLEANER/Controllers/Contacts/ListContactsBackup/ListContactsBackup.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "121"
+            endingLineNumber = "121"
+            landmarkName = "tableView(_:didSelectRowAt:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
