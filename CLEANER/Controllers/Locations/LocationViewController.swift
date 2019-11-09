@@ -70,12 +70,11 @@ class LocationViewController: UIViewController {
 
 //MARK: UICollectionViewDataSource,UICollectionViewDelegateFlowLayout 's Method
 extension LocationViewController: UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
-    
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        if(data != nil && data.keys != nil && data.keys != nil && data.keys.count > 0) {
-            return 0
+        if(data.keys != nil && data.keys.count > 0) {
+            return data.keys.count
         }
-        return data.keys.count
+        return 0
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
