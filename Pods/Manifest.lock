@@ -7,7 +7,7 @@ DEPENDENCIES:
   - SwiftyContacts
 
 SPEC REPOS:
-  https://github.com/cocoapods/specs.git:
+  trunk:
     - SwiftyContacts
 
 SPEC CHECKSUMS:
@@ -15,4 +15,4 @@ SPEC CHECKSUMS:
 
 PODFILE CHECKSUM: f2c0ee96973eaa2c1717f28abb3abb1e1a48185c
 
-COCOAPODS: 1.7.1
+COCOAPODS: 1.8.3

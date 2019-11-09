@@ -20,10 +20,14 @@ class LocationViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.title = "Locations"
+
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
         getAllAlbums()
         setUpCollectionView()
     }
-    
     private func getAllAlbums() {
         PhotosHelper.getAlbumsMoment { (PHAssetCollections) in
             PHAssetCollections.forEach({ (PHAssetCollection) in
@@ -36,7 +40,9 @@ class LocationViewController: UIViewController {
     
     private func getLocationNameWith( location: CLLocation, collec: PHAssetCollection) {
         let geoCoder = CLGeocoder()
-        geoCoder.reverseGeocodeLocation(location, completionHandler: { placemarks, error -> Void in
+//        geoCoder.cancelGeocode()
+        geoCoder.reverseGeocodeLocation(location) { (placemarks, error) in
+            print("error-\(String(describing: error))")
             guard let placeMark = placemarks?.first else { return }
             if let city = placeMark.locality != nil ? placeMark.locality : placeMark.administrativeArea != nil ? placeMark.administrativeArea : placeMark.country {
                 if Array(self.data.keys).contains(city) {
@@ -52,7 +58,7 @@ class LocationViewController: UIViewController {
                 }
             }
             print("\(self.data.count)")
-        })
+        }
     }
     
     private func setUpCollectionView() {
@@ -63,11 +69,12 @@ class LocationViewController: UIViewController {
 }
 
 //MARK: UICollectionViewDataSource,UICollectionViewDelegateFlowLayout 's Method
-
 extension LocationViewController: UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     
-    
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        if(data != nil && data.keys != nil && data.keys != nil && data.keys.count > 0) {
+            return 0
+        }
         return data.keys.count
     }
     
