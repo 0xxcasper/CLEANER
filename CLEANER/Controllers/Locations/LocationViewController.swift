@@ -71,7 +71,7 @@ class LocationViewController: UIViewController {
 //MARK: UICollectionViewDataSource,UICollectionViewDelegateFlowLayout 's Method
 extension LocationViewController: UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        if(data.keys != nil && data.keys.count > 0) {
+        if(data != nil && data.keys != nil && data.keys.count > 0) {
             return data.keys.count
         }
         return 0
