@@ -20,7 +20,8 @@ class LocationViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.title = "Locations"
-
+        data.removeAll()
+        dataPHAssets.removeAll()
     }
     
     override func viewWillAppear(_ animated: Bool) {
