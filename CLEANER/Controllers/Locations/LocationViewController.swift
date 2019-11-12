@@ -40,7 +40,7 @@ class LocationViewController: UIViewController {
     
     private func getLocationNameWith( location: CLLocation, collec: PHAssetCollection) {
         let geoCoder = CLGeocoder()
-//        geoCoder.cancelGeocode()
+        geoCoder.cancelGeocode()
         geoCoder.reverseGeocodeLocation(location) { (placemarks, error) in
             print("error-\(String(describing: error))")
             guard let placeMark = placemarks?.first else { return }
@@ -71,20 +71,39 @@ class LocationViewController: UIViewController {
 //MARK: UICollectionViewDataSource,UICollectionViewDelegateFlowLayout 's Method
 extension LocationViewController: UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        if(data != nil && data.keys != nil && data.keys.count > 0) {
+        if(data.count > 0) {
             return data.keys.count
         }
         return 0
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueCell(LocationCollectionViewCell.self, indexPath: indexPath)
-        cell.addShadow(ofColor: .black, radius: 5, offset: .zero, opacity: 0.3)
-        let key = Array(data.keys)[indexPath.row]
-        let region = MKCoordinateRegion(center: data[key]!.coordinate, span: MKCoordinateSpan(latitudeDelta: 1, longitudeDelta: 1))
-        cell.lblLocation.text = key
-        cell.mapView.setRegion(region, animated: false)
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "LocationCollectionViewCell", for: indexPath) as! LocationCollectionViewCell
+        if( Array(data.keys).count > 0 && Array(data.keys).count > indexPath.row) {
+            let key = Array(data.keys)[indexPath.row]
+            if(data[key] == nil) {return UICollectionViewCell()}
+            if (catchError(location: data[key]!)) {
+                let region = MKCoordinateRegion(center: data[key]!.coordinate, span: MKCoordinateSpan(latitudeDelta: 1, longitudeDelta: 1))
+                cell.setupCell(key: key, region: region)
+            }
+
+        } else {
+            return UICollectionViewCell()
+        }
         return cell
+    }
+    
+    func catchError(location: CLLocation) -> Bool {
+        guard (-90.0 ... 90.0).contains(location.coordinate.latitude) else {
+            print("Unexpected latitude value \(location.coordinate.latitude)")
+            return false
+        }
+
+        guard (-180.0 ... 180.0).contains(location.coordinate.longitude) else {
+            print("Unexpected longitude value \(location.coordinate.longitude)")
+            return false
+        }
+        return true
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
@@ -99,10 +118,12 @@ extension LocationViewController: UICollectionViewDataSource, UICollectionViewDe
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let selectPhotoVC = SelectPhotoViewController()
-        let key = Array(data.keys)[indexPath.row]
-        selectPhotoVC.isLocation = true
-        selectPhotoVC.phCollections = self.dataPHAssets[key]!
-        self.navigationController?.pushViewController(selectPhotoVC, animated: true)
+        if( Array(data.keys).count > 0 && Array(data.keys).count > indexPath.row) {
+            let key = Array(data.keys)[indexPath.row]
+            selectPhotoVC.isLocation = true
+            selectPhotoVC.phCollections = self.dataPHAssets[key]!
+            self.navigationController?.pushViewController(selectPhotoVC, animated: true)
+        }
     }
 }
 

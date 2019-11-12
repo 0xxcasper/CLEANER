@@ -27,5 +27,11 @@ class LocationCollectionViewCell: UICollectionViewCell {
         self.mapView.clipsToBounds = true
         self.mapView.isScrollEnabled = false
     }
+    
+    func setupCell(key: String, region: MKCoordinateRegion) {
+        lblLocation.text = key
+        mapView.setRegion(region, animated: false)
+        self.addShadow(ofColor: .black, radius: 5, offset: .zero, opacity: 0.3)
+    }
 
 }
