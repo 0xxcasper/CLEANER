@@ -22,6 +22,7 @@ class SelectPhotoViewController: UIViewController {
     private let imageManager = PHCachingImageManager()
     private var targetSize = CGSize(width: (Constant.SCREEN_WIDTH - 3)/3, height: (Constant.SCREEN_WIDTH - 3)/3)
     private var isSelectMutiple = true
+    private var oldResult = [PHAsset]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -38,7 +39,12 @@ class SelectPhotoViewController: UIViewController {
                         self.results.append(PHAsset)
                     })
                     DispatchQueue.main.async {
-                        self.collectionView.reloadData()
+                        if self.results.count > 0 && self.oldResult != self.results {
+                            self.oldResult = self.results
+                            UIView.setAnimationsEnabled(false)
+                            self.collectionView.reloadData()
+                            UIView.setAnimationsEnabled(true)
+                        }
                     }
                 })
             }

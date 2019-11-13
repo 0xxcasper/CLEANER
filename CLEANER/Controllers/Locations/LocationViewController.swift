@@ -16,12 +16,14 @@ class LocationViewController: UIViewController {
     
     private var data: [String: CLLocation] = [:]
     private var dataPHAssets: [String: [PHAssetCollection]] = [:]
+    private var oldData: [String: CLLocation] = [:]
 
     override func viewDidLoad() {
         super.viewDidLoad()
         self.title = "Locations"
         data.removeAll()
         dataPHAssets.removeAll()
+        
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -29,6 +31,7 @@ class LocationViewController: UIViewController {
         getAllAlbums()
         setUpCollectionView()
     }
+    
     private func getAllAlbums() {
         PhotosHelper.getAlbumsMoment { (PHAssetCollections) in
             PHAssetCollections.forEach({ (PHAssetCollection) in
@@ -44,21 +47,27 @@ class LocationViewController: UIViewController {
         geoCoder.cancelGeocode()
         geoCoder.reverseGeocodeLocation(location) { (placemarks, error) in
             print("error-\(String(describing: error))")
-            guard let placeMark = placemarks?.first else { return }
-            if let city = placeMark.locality != nil ? placeMark.locality : placeMark.administrativeArea != nil ? placeMark.administrativeArea : placeMark.country {
-                if Array(self.data.keys).contains(city) {
-                    if !self.dataPHAssets[city]!.contains(collec) {
-                        self.dataPHAssets[city]!.append(collec)
+            if error == nil {
+                guard let placeMark = placemarks?.first else { return }
+                if let city = placeMark.locality != nil ? placeMark.locality : placeMark.administrativeArea != nil ? placeMark.administrativeArea : placeMark.country {
+                    if Array(self.data.keys).contains(city) {
+                        if !self.dataPHAssets[city]!.contains(collec) {
+                            self.dataPHAssets[city]!.append(collec)
+                        }
+                    } else {
+                        self.data.updateValue(location, forKey: city)
+                        self.dataPHAssets.updateValue([collec], forKey: city)
                     }
-                } else {
-                    self.data.updateValue(location, forKey: city)
-                    self.dataPHAssets.updateValue([collec], forKey: city)
-                }
-                DispatchQueue.main.async {
-                    self.collectionView.reloadData()
+                    DispatchQueue.main.async {
+                        if (self.data.count > 0 && self.data.keys.count > 0 && self.oldData != self.data) {
+                            self.oldData = self.data
+                            UIView.setAnimationsEnabled(false)
+                            self.collectionView.reloadData()
+                            UIView.setAnimationsEnabled(true)
+                        }
+                    }
                 }
             }
-            print("\(self.data.count)")
         }
     }
     
@@ -72,7 +81,7 @@ class LocationViewController: UIViewController {
 //MARK: UICollectionViewDataSource,UICollectionViewDelegateFlowLayout 's Method
 extension LocationViewController: UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        if(data.count > 0) {
+        if (data.count > 0 && data.keys.count > 0) {
             return data.keys.count
         }
         return 0
@@ -82,14 +91,12 @@ extension LocationViewController: UICollectionViewDataSource, UICollectionViewDe
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "LocationCollectionViewCell", for: indexPath) as! LocationCollectionViewCell
         if( Array(data.keys).count > 0 && Array(data.keys).count > indexPath.row) {
             let key = Array(data.keys)[indexPath.row]
-            if(data[key] == nil) {return UICollectionViewCell()}
+
             if (catchError(location: data[key]!)) {
                 let region = MKCoordinateRegion(center: data[key]!.coordinate, span: MKCoordinateSpan(latitudeDelta: 1, longitudeDelta: 1))
                 cell.setupCell(key: key, region: region)
             }
 
-        } else {
-            return UICollectionViewCell()
         }
         return cell
     }
