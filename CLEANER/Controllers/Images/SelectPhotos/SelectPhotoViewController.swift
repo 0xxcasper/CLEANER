@@ -16,8 +16,11 @@ class SelectPhotoViewController: UIViewController {
     var fetchResult: PHFetchResult<PHAsset>!
     var isLocation: Bool! = false
     var phCollections: [PHAssetCollection]!
-    
+    let dispatchGroup = DispatchGroup()
+
     private var results = [PHAsset]()
+    private var clone_results = [PHAsset]()
+
     private var imagesDelete = [IndexPath:PHAsset]()
     private let imageManager = PHCachingImageManager()
     private var targetSize = CGSize(width: (Constant.SCREEN_WIDTH - 3)/3, height: (Constant.SCREEN_WIDTH - 3)/3)
@@ -34,21 +37,31 @@ class SelectPhotoViewController: UIViewController {
             })
         } else {
             phCollections.forEach { (PHAssetCollection) in
+                print("")
                 PhotosHelper.getPHFetchResultAssetsFromAlbum(album: PHAssetCollection, { PHFetchResult in
+                    
                     PHFetchResult.enumerateObjects({ (PHAsset, Int, UnsafeMutablePointer) in
                         self.results.append(PHAsset)
                     })
-                    DispatchQueue.main.async {
-                        if self.results.count > 0 && self.oldResult != self.results {
-                            self.oldResult = self.results
-                            UIView.setAnimationsEnabled(false)
-                            self.collectionView.reloadData()
-                            UIView.setAnimationsEnabled(true)
-                        }
-                    }
                 })
             }
         }
+        
+        DispatchQueue.main.asyncAfter(deadline: .now() + 2.0) {
+            DispatchQueue.main.async {
+                self.clone_results = self.results
+                self.collectionView.reloadData()
+            }
+        }
+        
+        DispatchQueue.main.asyncAfter(deadline: .now() + 4.0) {
+            DispatchQueue.main.async {
+                if(self.clone_results.count < self.results.count) {
+                    self.collectionView.reloadData()
+                }
+            }
+        }
+
         btnDelete.layer.cornerRadius = 25
         btnDelete.clipsToBounds = true
         setUpCollectionView()
