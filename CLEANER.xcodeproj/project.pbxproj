@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		191D3E10BE713A1B79E272EB /* Pods_CLEANER.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A967D0F603AD4B54D2553FA1 /* Pods_CLEANER.framework */; };
+		25BDCDA9237CFEF50046F6DC /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 25BDCDA8237CFEF50046F6DC /* MapKit.framework */; };
 		25E67B42233C89410071AE2D /* ContactCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25E67B40233C89410071AE2D /* ContactCell.swift */; };
 		25E67B43233C89410071AE2D /* ContactCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 25E67B41233C89410071AE2D /* ContactCell.xib */; };
 		84064D002337321C00485D2D /* ImageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84064CFE2337321C00485D2D /* ImageViewController.swift */; };
@@ -61,6 +62,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		25BDCDA8237CFEF50046F6DC /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		25E67B40233C89410071AE2D /* ContactCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContactCell.swift; sourceTree = "<group>"; };
 		25E67B41233C89410071AE2D /* ContactCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ContactCell.xib; sourceTree = "<group>"; };
 		2E4BB8A8CFF01A591F2F2648 /* Pods-CLEANER.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CLEANER.debug.xcconfig"; path = "Target Support Files/Pods-CLEANER/Pods-CLEANER.debug.xcconfig"; sourceTree = "<group>"; };
@@ -123,6 +125,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				25BDCDA9237CFEF50046F6DC /* MapKit.framework in Frameworks */,
 				191D3E10BE713A1B79E272EB /* Pods_CLEANER.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -343,6 +346,7 @@
 		CA98FA4D4B4C8BEA11C82B44 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				25BDCDA8237CFEF50046F6DC /* MapKit.framework */,
 				A967D0F603AD4B54D2553FA1 /* Pods_CLEANER.framework */,
 			);
 			name = Frameworks;
